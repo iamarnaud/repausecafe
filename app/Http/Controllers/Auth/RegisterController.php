@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/flux';
 
     /**
      * Create a new controller instance.
@@ -43,30 +43,48 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'name' => 'required|string|max:255',
+        $test = Validator::make($data, [
+            'nom' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'prenom' => 'required|string|max:255',
+            'tel' => '',
+            'date_naiss' => '',
+            'description' => '',
+            'url_img_profil' => '',
+            'notification' => '',
+            'genre'=>'',
+
         ]);
+
+        return $test;
     }
 
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \App\User
      */
     protected function create(array $data)
     {
+
         return User::create([
-            'name' => $data['name'],
+            'nom' => $data['nom'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'tel' => $data['tel'],
+            'prenom' => $data['prenom'],
+            'date_naiss' => $data['date_naiss'],
+            'description' => $data['description'],
+            'genre' => $data['genre'],
+            'url_img_profil' => $data['url_img_profil'],
+            'notification' => $data['notification'],
         ]);
     }
 }

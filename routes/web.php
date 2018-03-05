@@ -12,20 +12,20 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
+Route::get('index', 'HomeController@index')->name('index');
+//route::get('centresInterets',)
 
 //-------------Route de la Navbar du header---------------------
 //User connected redirige vers le flux (concerne logo du header)
 Route::get('flux', 'connectController@connected')->name('flux.get');
 
 //User disconnected redirige vers index (concerne logo du header)
-Route::get('controllerSign/index', 'connectController@disconnected')->name('index.get');
+Route::get('index', 'connectController@disconnected')->name('index.get');
 
 
 //Regroupement des routes pour l'utilisateur connecté
@@ -52,7 +52,7 @@ Route::group(['prefix'=>'user'], function(){
     })->name('geoloc.get');
     //Déconnecte de la sce
     Route::get('index', function(){
-        return view('controllerSign/index');
+        return view('index');
     })->name('signout');
 });
 // ------------- End Route de la Navbar du header---------------------

@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('genre');
             $table->string('pseudo', 30);
             $table->string('email', 70)->unique();
-            $table->longText('hash_Pass');
+            $table->longText('password');
             $table->text('url_img_profil');
             $table->longText('description');
             $table->string('tel', 15);
