@@ -18,14 +18,14 @@ class CreateUsersTable extends Migration
             $table->string('nom', 50);
             $table->string('prenom', 50);
             $table->string('genre');
-            $table->string('pseudo', 30);
+
             $table->string('email', 70)->unique();
-            $table->longText('password');
+            $table->string('password',15);
             $table->text('url_img_profil');
             $table->longText('description');
             $table->string('tel', 15);
-            $table->boolean('en_ligne');
-            $table->boolean('notification');
+            $table->boolean('en_ligne')->nullable();
+            $table->boolean('notification')->default(0);
             $table->date('date_naiss');
             $table->rememberToken();
             $table->timestamps();

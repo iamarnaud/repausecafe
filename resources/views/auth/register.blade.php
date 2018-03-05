@@ -142,12 +142,12 @@
                         <div class="form-group">
                         <p>
                             <label class="control-label" for="not-sms">Notification par SMS</label>
-                            <input type="checkbox" name="notification" id="not-sms"  data-validation-qty="min1" data-validation="checkbox_group">
+                            <input type="checkbox" value="0" name="notification" id="not-sms" >
 
                         </p>
                         <p>
                             <label class="control-label" for="not-mail">Notification par mail</label>
-                            <input type="checkbox" name="notification" id="not-mail" data-validation-qty="min1" data-validation="checkbox_group">
+                            <input type="checkbox" value="0" name="notification" id="not-mail" >
 
                         </p>
                         </div>
