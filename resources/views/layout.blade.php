@@ -17,7 +17,7 @@
     <script src="{{asset('plug/MagnificPopup/jquery.magnific-popup.js')}}"></script>
     <script src="{{asset('plug/AmaranJS/dist/js/jquery.amaran.js')}}"></script>
     <script src="{{asset('plug/tapmodo-Jcrop-1902fbc/js/jquery.Jcrop.min.js')}}"></script>
-    <script src="{{asset('plug/icheck-1.x/icheck.js')}}"></script>
+
     <script src="{{asset('plug/vide/jquery.vide.js')}}"></script>
         @yield('title')
 </head>
@@ -31,7 +31,7 @@
             <li class="menu_icon"><a href={{route('chat.get')}} class="menu_lien"><i class="fa fa-comments-o" aria-hidden="true"></i></a></li>
             <li class="menu_icon"><a href={{route('geoloc.get')}} class="menu_lien"><i class="fa fa-globe" aria-hidden="true"></i></a></li>
             <li class="menu_icon"><a href={{route('parametres.get')}} class="menu_lien"><i class="fa fa-cog" aria-hidden="true"></i></a></li>
-            <li class="menu_icon"><a href={{route('signout')}} class="menu_lien"><i class="fa fa-sign-out"></i></a></li>
+            <li class="menu_icon"><form id="logout-form" action="{{ route('logout') }}" method="POST" ><a href={{route('signout')}} class="menu_lien"><i class="fa fa-sign-out"></i></a></form></li>
         </ul>
     </div>
 </nav>

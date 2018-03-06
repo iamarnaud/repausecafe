@@ -15,7 +15,7 @@ class AddToImgForeignOfUsrAndLieu extends Migration
     {
         Schema::table('images', function (Blueprint $table) {
             $table->foreign('id')->references('id')->on('users');
-            $table->foreign('id_lieu')->references('id_lieu')->on('lieus');
+            $table->foreign('id_lieu')->references('id_lieu')->on('lieux');
         });
     }
 
