@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('index', 'HomeController@index')->name('index');
 //route::get('centresInterets',)
-
+Route::post('flux', 'connectController@connected')->name('flux.post');
 //-------------Route de la Navbar du header---------------------
 //User connected redirige vers le flux (concerne logo du header)
 Route::get('flux', 'connectController@connected')->name('flux.get');

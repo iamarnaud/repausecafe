@@ -31,7 +31,7 @@
             <li class="menu_icon"><a href={{route('chat.get')}} class="menu_lien"><i class="fa fa-comments-o" aria-hidden="true"></i></a></li>
             <li class="menu_icon"><a href={{route('geoloc.get')}} class="menu_lien"><i class="fa fa-globe" aria-hidden="true"></i></a></li>
             <li class="menu_icon"><a href={{route('parametres.get')}} class="menu_lien"><i class="fa fa-cog" aria-hidden="true"></i></a></li>
-            <li class="menu_icon"><form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;"><a href={{route('signout')}} class="menu_lien"><i class="fa fa-sign-out"></i></a></form></li>
+            <li class="menu_icon"><form id="logout-form" action="{{ route('logout') }}" method="POST" ><a href={{route('signout')}} class="menu_lien"><i class="fa fa-sign-out"></i></a></form></li>
         </ul>
     </div>
 </nav>
