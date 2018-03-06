@@ -7,7 +7,7 @@
 
     <h1>Mes centres d'intérêts</h1><br><br>
 
-    <form method="post" action="{{route('flux')}}" class="" id="form_interests">
+    <form method="post" action="{{route('register')}}" class="" id="form_interests">
         <!--La ligne suivante est nécesssaire sinon erreur csrf_token sur la page chargée-->
         {{ csrf_field() }}
         <div class="container">

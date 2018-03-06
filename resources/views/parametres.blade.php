@@ -1,4 +1,4 @@
-@extends ('layout')
+@extends ('layouts.app')
 @section('title')
     <title>SeecretSpot | Paramètres</title>
 @endsection
@@ -7,15 +7,9 @@
     <div class="container">
         <div class="offset-lg-2 col-lg-8 offset-lg-2 offset-md-2 col-md-8 offset-md-2 offset-sm-2 col-sm-8 offset-sm-2">
             <h1 id="titre-inscription">Paramètres de compte</h1>
-            <form method="" id="font-inscription" action="" class="well" role="form">
+            <form method="POST" id="font-inscription" action="{{route('register')}}" class="well" role="form">
                 <fieldset>
-                    <p class="form-group">
-                        <label class="control-label" for="pseudo">Nom d'utilisateur</label>
-                        <input type="text" name="pseudo" id="utilisateur" class="form-control"
-                               placeholder="Entrez votre pseudo" data-validation="custom"
-                               data-validation-regexp="^([a-z0-9]+)$"
-                               data-validation-help="Carctères autorisés : Seulement les caractères minuscules et numériques. ESPACE non autorisés">
-                    </p>
+
                     <p class="form-group">
                         <label class="control-label" for="nom">Nom</label>
                         <input name="nom" id="nomComplet" class="form-control" placeholder="Entrez votre nom"
@@ -32,7 +26,7 @@
                     </p>
                     <p class="form-group">
                         <label class="control-label" for="telephone">Téléphone</label>
-                        <input id="telephone" class="form-control" placeholder="Entrez votre numéro de téléphone" name="telephone" type="tel">
+                        <input id="telephone" class="form-control" placeholder="Entrez votre numéro de téléphone" name="tel" type="tel">
                     </p>
                     <p class="form-group">
                         <label class="control-label" for="date_naiss">Date de naissance</label>
@@ -77,7 +71,7 @@
                     <fieldset>
                         <legend>Photo de profil</legend>
                         <div class="form-group">
-                            <input type="file" name="imgProfil">
+                            <input type="file" name="url_img_profil">
                             <!-- <input type="submit" value="Utiliser" id="bouton-message"/><!--a définir si utile ou si la photo se charge toute seule-->
                         </div>
                     </fieldset>
@@ -96,8 +90,8 @@
                             </p>
                         </div>
                         <p class="form-group">
-                            <input class="btn btn-success" type="submit" value="Validate">
-                            <input class="btn btn-danger" type="reset" value="Reset form">
+                            <input class="btn btn-success" type="submit" value="Valider">
+                            <input class="btn btn-danger" type="reset" value="Tout effacer">
                         </p>
                     </fieldset>
             </form>

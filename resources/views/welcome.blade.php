@@ -60,7 +60,7 @@
                                                 @endif
                                             </p>
                                             <p class="form-group ">
-                                                <label for="password" class="col-form-label ">Password</label>
+                                                <label for="password" class="col-form-label ">Mot de passe</label>
                                                 <input id="password" type="password"
                                                        class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
                                                        name="password" required>
@@ -77,14 +77,14 @@
                                                     <label>
                                                         <input type="checkbox"
                                                                name="remember" {{ old('remember') ? 'checked' : '' }}>
-                                                        Se Souvenir de moi
+                                                        Se souvenir de moi
                                                     </label>
                                                 </div>
                                             </div>
                                             </p>
                                             <p class="form-group">
                                                 <a class="btn btn-link" href="{{ route('password.request') }}">
-                                                    Forgot Your Password?
+                                                    Mot de passe oublié ?
                                                 </a>
                                             </p>
                                             <p class="form-group">

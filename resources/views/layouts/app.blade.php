@@ -14,24 +14,19 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
-
-
-
-
     <script src="{{asset('plug/vide/jquery.vide.js')}}"></script>
     @yield('title')
 </head>
-<body>
+<body style="font-family: 'Roboto', sans-serif;">
 
 <nav class="nav">
-    <div class="col-xs-8" id="logo_title"><a href={{route('home')}} id="retour-flux"><i class="fa fa-eye"
-                                                                                        aria-hidden="true"></i><span
+    <div class="col-xs-8" id="logo_title"><a href={{route('home')}} id="retour-flux"><i class="fa fa-eye" aria-hidden="true"></i><span
                     class="hidden-xs"> SeecretSpot</span></a></div>
     <div class="col-xs-4 col align-self-end">
         <ul id="menu_connect">
             @guest
-                <li><a class="nav-link" href="{{ route('login') }}">Se connecter</a></li>
-                <li><a class="nav-link text-decoration:none" href="{{ route('register') }}">Nouvel utilisateur ?</a></li>
+                <li><a class="nav-link" style="color:white; font-weight:bold; " href="{{ route('login') }}">Se connecter</a></li>
+                <li><a class="nav-link" style="color:white; font-weight:bold; " href="{{ route('register') }}">Nouvel utilisateur ?</a></li>
             @else
                 <li class="menu_share"><a href={{route('partager.get')}} id="menu_lien_share"><span
                                 class="hidden-sm hidden-xs" id="menu_share_letter">Partager </span><i

@@ -157,9 +157,9 @@
                 <div class="form-group row mb-0">
                     <div class="col-md-6 offset-md-5">
                         <button type="submit" class="btn btn-success">
-                            Register
+                            S'enregistrer
                         </button>
-                        <input class="btn btn-danger" type="reset" value="Reset form">
+                        <input class="btn btn-danger" type="reset" value="Tout effacer">
                     </div>
                 </div>
             </form>
