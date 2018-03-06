@@ -30,7 +30,7 @@
                             <div class="row justify-content-center">
 
 
-                        <form method="post" action="{{ asset('/flux') }}" class="well" id="font-index">
+                                <form method="POST" action="{{ route('login')}}" class="well" id="font-index">
                             <!--La ligne suivante est nécesssaire sinon erreur csrf_token sur la page chargée-->
                             {{ csrf_field() }}
                             <h2> Déjà membre ?</h2>

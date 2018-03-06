@@ -13,12 +13,12 @@ class CreationTableAmiForeignOnIdUtilisateur extends Migration
      */
     public function up()
     {
-        Schema::create('ami', function (Blueprint $table) {
+        Schema::create('amis', function (Blueprint $table) {
             $table->dateTime('anniversaire_amitie');
             $table->integer('id')->unsigned();
-            $table->integer('id_users')->unsigned();
-            $table->primary(array('id','id_users'));
-            $table->timestamp('date_creation');
+            $table->integer('id_n')->unsigned();
+            $table->primary(array('id', 'id_n'));
+            $table->timestamps();
 
         });
     }
@@ -30,6 +30,6 @@ class CreationTableAmiForeignOnIdUtilisateur extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ami');
+        Schema::dropIfExists('amis');
     }
 }

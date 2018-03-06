@@ -13,11 +13,11 @@ class CreateLieuxTable extends Migration
      */
     public function up()
     {
-        Schema::create('lieux', function (Blueprint $table) {
+        Schema::create('lieuxes', function (Blueprint $table) {
             $table->increments('id_lieu',true)->unsigned();
-            $table->string('pays',50);
-            $table->string('ville',50);
-            $table->string('region',50);
+            $table->string('pays', 100);
+            $table->string('ville', 100);
+            $table->string('region', 100);
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateLieuxTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lieux');
+        Schema::dropIfExists('lieuxes');
     }
 }

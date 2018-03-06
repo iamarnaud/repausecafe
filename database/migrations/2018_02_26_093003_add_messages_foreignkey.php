@@ -16,7 +16,7 @@ class AddMessagesForeignkey extends Migration
         Schema::table('messages', function (Blueprint $table) {
 
             $table->foreign('id')->references('id')->on('users');
-            $table->foreign('id_users')->references('id')->on('users');
+            $table->foreign('id_n')->references('id')->on('users');
 
         });
     }
@@ -30,7 +30,7 @@ class AddMessagesForeignkey extends Migration
     {
         Schema::table('messages', function (Blueprint $table) {
             $table->dropForeign('messages_id_foreign');
-            $table->dropForeign('messages_id_users_foreign');
+            $table->dropForeign('messages_id_n_foreign');
         });
     }
 }
