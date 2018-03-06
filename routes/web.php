@@ -29,7 +29,7 @@ Route::get('flux', 'connectController@disconnected')->name('flux.get');
 //Regroupement des routes pour l'utilisateur connecté
 Route::group(['prefix'=>'user'], function(){
     //Redirige vers monProfil.blade (icone profil)
-    Route::get('profile', function(){
+    Route::get('profil', function(){
         return view('monProfil');
     })->name('user_profil.get');
     //Redirige vers monProfil.blade (icone partager)

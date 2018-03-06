@@ -9,6 +9,7 @@
             <h1 id="titre-inscription">Paramètres de compte</h1>
             <form method="POST" id="font-inscription" action="{{route('register')}}" class="well" role="form">
                 <fieldset>
+@csrf
 
                     <p class="form-group">
                         <label class="control-label" for="nom">Nom</label>
