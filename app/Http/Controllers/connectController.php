@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 class connectController extends Controller
 {
     public function connected(){
-        return view('flux');
+        return view('home');
     }
     public function disconnected(){
-        return view('controllerSign/index');
+        return view('home');
     }
 }

@@ -18,7 +18,6 @@ class CreateUsersTable extends Migration
             $table->string('nom', 50);
             $table->string('prenom', 50);
             $table->string('genre');
-
             $table->string('email', 70)->unique();
             $table->string('password',255);
             $table->text('url_img_profil');

@@ -12,26 +12,24 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('welcome');
 });
 
 Auth::routes();
 
-Route::get('index', 'HomeController@index')->name('index');
-//route::get('centresInterets',)
-Route::post('flux', 'connectController@connected')->name('flux.post');
+Route::get('/home', 'HomeController@index')->name('home');
 //-------------Route de la Navbar du header---------------------
 //User connected redirige vers le flux (concerne logo du header)
 Route::get('flux', 'connectController@connected')->name('flux.get');
 
 //User disconnected redirige vers index (concerne logo du header)
-Route::get('index', 'connectController@disconnected')->name('index.get');
+Route::get('flux', 'connectController@disconnected')->name('flux.get');
 
 
 //Regroupement des routes pour l'utilisateur connecté
 Route::group(['prefix'=>'user'], function(){
     //Redirige vers monProfil.blade (icone profil)
-    Route::get('profile', function(){
+    Route::get('profil', function(){
         return view('monProfil');
     })->name('user_profil.get');
     //Redirige vers monProfil.blade (icone partager)
@@ -50,10 +48,7 @@ Route::group(['prefix'=>'user'], function(){
     Route::get('geoloc', function(){
         return view('geoloc');
     })->name('geoloc.get');
-    //Déconnecte de la sce
-    Route::get('index', function(){
-        return view('index');
-    })->name('signout');
+
 });
 // ------------- End Route de la Navbar du header---------------------
 

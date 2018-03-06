@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+    <title>SeecretSpot | NOM UTILISATEUR </title>
+    @endsection
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
