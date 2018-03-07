@@ -15,7 +15,7 @@ use Faker\Generator as Faker;
 
 $factory->define(App\User::class, function (Faker $faker) {
     return [
-        'id' => $faker->unique()->numberBetween($min = 1, $max = 500),
+        'id' => $faker->unique()->numberBetween($min = 1, $max = 5000),
         'nom' => $faker->lastName,
         'prenom' => $faker->firstName,
         'email' => $faker->unique()->safeEmail,

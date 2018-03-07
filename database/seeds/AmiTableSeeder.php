@@ -11,6 +11,6 @@ class AmiTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Ami::class, 5)->create();
+        factory(App\Ami::class, 15)->create();
     }
 }
