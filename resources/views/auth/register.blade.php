@@ -7,7 +7,7 @@
     <div class="container">
         <div class="offset-lg-2 col-lg-8 offset-lg-2 offset-md-2 col-md-8 offset-md-2 offset-sm-2 col-sm-8 offset-sm-2">
             <h1 id="titre-inscription">Inscription</h1><br>
-            <form method="POST" action="{{ route('register') }}">
+            <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                 @csrf
 
                 <div class="form-group row">
@@ -96,7 +96,7 @@
                     <label for="url_img_profil" class="col-md-4 col-form-label text-md-right">Choisissez votre photo de profil</label>
 
                     <div class="col-md-6">
-                        <input id="url_img_profil" type="file" enctype="multipart/form-data" class="form-control{{ $errors->has('url_img_profil') ? ' is-invalid' : '' }}"  value="{{ old('url_img_profil') }}"name="url_img_profil"    >
+                        <input id="url_img_profil" type="file"  class="form-control{{ $errors->has('url_img_profil') ? ' is-invalid' : '' }}"  value="{{ old('url_img_profil') }} "name="url_img_profil"    >
                         @if ($errors->has('url_img_profil'))
                             <span class="invalid-feedback">
                                         <strong>{{ $errors->first('url_img_profil') }}</strong>
