@@ -10,6 +10,8 @@
                 <h1 id="titre-inscription">Connexion</h1>
             <div class="card">
                 <div class="card-body">
+                    <div class="row justify-content-center">Vous devez vous connecter pour accéder au site !</div>
+                    <br>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 

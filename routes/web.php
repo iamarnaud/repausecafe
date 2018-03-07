@@ -20,14 +20,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 //-------------Route de la Navbar du header---------------------
 //User connected redirige vers le flux (concerne logo du header)
-Route::get('flux', 'connectController@connected')->name('flux.get');
-
-//User disconnected redirige vers index (concerne logo du header)
-Route::get('flux', 'connectController@disconnected')->name('flux.get');
 
 
 //Regroupement des routes pour l'utilisateur connecté
-Route::group(['prefix'=>'user'], function(){
+Route::middleware(['auth', 'web'])->group( function(){
     //Redirige vers monProfil.blade (icone profil)
     Route::get('profil', function(){
         return view('monProfil');

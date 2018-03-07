@@ -7,7 +7,7 @@
     <div class="container">
         <div class="offset-lg-2 col-lg-8 offset-lg-2 offset-md-2 col-md-8 offset-md-2 offset-sm-2 col-sm-8 offset-sm-2">
             <h1 id="titre-inscription">Paramètres de compte</h1>
-            <form method="POST" id="font-inscription" action="{{route('register')}}" class="well" role="form">
+            <form method="POST" id="font-inscription" action="{{route('register')}}" enctype="multipart/form-data" class="well" role="form">
                 <fieldset>
 @csrf
 
@@ -72,7 +72,7 @@
                     <fieldset>
                         <legend>Photo de profil</legend>
                         <div class="form-group">
-                            <input type="file" name="url_img_profil">
+                            <input type="file" name="url_img_profil" class="form-control {{ $errors->has('url_img_profil') ? 'is-invalid' : '' }}"  id="image"  value="{{ old('url_img_profil') }}">
                             <!-- <input type="submit" value="Utiliser" id="bouton-message"/><!--a définir si utile ou si la photo se charge toute seule-->
                         </div>
                     </fieldset>
