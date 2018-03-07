@@ -19,8 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 //-------------Route de la Navbar du header---------------------
-//User connected redirige vers le flux (concerne logo du header)
 
+//User connected redirige vers le flux (concerne logo du header)
 
 //Regroupement des routes pour l'utilisateur connecté
 Route::middleware(['auth', 'web'])->group( function(){

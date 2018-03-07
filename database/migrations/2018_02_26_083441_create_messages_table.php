@@ -18,7 +18,7 @@ class CreateMessagesTable extends Migration
             $table->integer('id_n')->unsigned();
             $table->dateTime('date_envoi');
             $table->longText('messages');
-            $table->timestamp('datecreation');
+            $table->timestamps();
             $table->primary(array('id', 'id_n'));
 
         });
