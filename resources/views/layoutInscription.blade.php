@@ -19,8 +19,7 @@
     <script src="{{asset('plug/tapmodo-Jcrop-1902fbc/js/jquery.Jcrop.min.js')}}"></script>
 
     <script src="{{asset('plug/vide/jquery.vide.js')}}"></script>
-    <script src="{{asset('js/script.js')}}"></script>
-    <script src="{{asset('js/bootstrap.js')}}"></script>
+
     <script src="{{asset('js/sessionStorage.js')}}"></script>
 
     @yield('title')
@@ -42,6 +41,7 @@
         <p><a href="{{asset('mentionsLegales')}}">Mentions Légales</a> | Plan du site | Contact</p>
     </div>
 </footer>
-
+<script src="{{asset('js/script.js')}}"></script>
+<script src="{{asset('js/bootstrap.js')}}"></script>
 </body>
 </html>

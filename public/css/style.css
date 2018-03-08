@@ -300,7 +300,10 @@ li {
     font-size: 25px;
     font-weight: bold;
 }
-
+.prenom_connect{
+    color:white;
+    font-family: "Roboto Condensed";
+}
 .photo-profil {
     width: 150px;
     height: 150px;
@@ -329,7 +332,9 @@ li {
 #titre-inscription {
     font-family: 'Permanent Marker', cursive;
 }
-
+#titreSearch{
+    font-family: 'Permanent Marker', cursive;
+}
 #contact {
     margin-top: 5%;
     width: 70%;

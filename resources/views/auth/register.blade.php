@@ -52,7 +52,7 @@
                     <label for="date_naiss" class="col-md-4 col-form-label text-md-right">Date de naissance</label>
 
                     <div class="col-md-6">
-                        <input id="date_naiss" type="date" class="form-control{{ $errors->has('date_naiss') ? ' is-invalid' : '' }}"  value="{{ old('date_naiss') }}" name="date_naiss" >
+                        <input id="date_naiss" type="date" class="form-control{{ $errors->has('date_naiss') ? ' is-invalid' : '' }}"  value="{{ old('date_naiss') }}" name="date_naiss" required>
                         @if ($errors->has('date_naiss'))
                             <span class="invalid-feedback">
                                         <strong>{{ $errors->first('date_naiss') }}</strong>
@@ -66,7 +66,7 @@
                     <label class="col-md-4 col-form-label text-md-right" for="genre">Vous êtes</label>
                     <div class="col-md-6">
 
-                        <select class="form-control{{ $errors->has('genre') ? ' is-invalid' : '' }}" id="genre" name="genre"   >
+                        <select class="form-control{{ $errors->has('genre') ? ' is-invalid' : '' }}" id="genre" name="genre"  required >
                             <option value="">Choisir...</option>
                             <option value="femme">Une Femme (des années 80)</option>
                             <option value="homme">Un Homme (de cromagnon, un singe ou un poisson)</option>
@@ -81,10 +81,10 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="description" class="col-md-4 col-form-label text-md-right">Description</label>
+                    <label for="description" class="col-md-4 col-form-label text-md-right" >Description</label>
 
                     <div class="col-md-6">
-                        <textarea  id="description" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}"  name="description"   placeholder="Votre description">{{ old('description') }}</textarea>
+                        <textarea  id="description" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}"  name="description"   placeholder="Votre description" required>{{ old('description') }}</textarea>
                         @if ($errors->has('description'))
                             <span class="invalid-feedback">
                                         <strong>{{ $errors->first('description') }}</strong>
@@ -96,7 +96,7 @@
                     <label for="url_img_profil" class="col-md-4 col-form-label text-md-right">Choisissez votre photo de profil</label>
 
                     <div class="col-md-6">
-                        <input id="url_img_profil" type="file"  class="form-control{{ $errors->has('url_img_profil') ? ' is-invalid' : '' }}"  value="{{ old('url_img_profil') }} "name="url_img_profil"    >
+                        <input id="url_img_profil" type="file"  class="form-control{{ $errors->has('url_img_profil') ? ' is-invalid' : '' }}"  value="{{ old('url_img_profil') }} "name="url_img_profil"  required  >
                         @if ($errors->has('url_img_profil'))
                             <span class="invalid-feedback">
                                         <strong>{{ $errors->first('url_img_profil') }}</strong>
@@ -145,12 +145,14 @@
                 <div class="form-group">
                     <p>
                         <label class="control-label" for="not-sms">Notification par SMS</label>
-                        <input type="checkbox" name="notification" id="not-sms" value="1" data-validation-qty="min1" data-validation="checkbox_group">
+
+                        <input type="radio" name="notification"  value="0" id="notif-sms" >
 
                     </p>
                     <p>
                         <label class="control-label" for="not-mail">Notification par mail</label>
-                        <input type="checkbox" name="notification" id="not-mail" value="1" data-validation-qty="min1" data-validation="checkbox_group">
+
+                        <input type="radio" name="notification" id="not-mail" value="1" checked  >
 
                     </p>
                 </div>
