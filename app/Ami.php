@@ -9,6 +9,6 @@ class Ami extends Model
 
     public function user()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class, 'id_user', 'id_user_n');
     }
 }

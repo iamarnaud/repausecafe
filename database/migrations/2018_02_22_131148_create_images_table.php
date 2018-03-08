@@ -14,15 +14,14 @@ class CreateImagesTable extends Migration
     public function up()
     {
         Schema::create('images', function (Blueprint $table) {
-            $table->increments('id_image',true);
+            $table->increments('id', true);
             $table->string('nom',50);
             $table->string('lien',250);
             $table->longText('description');
             $table->integer('aime');
-            $table->date('post_date');
             $table->string('coord_lat', 50);
             $table->string('coord_lon', 50);
-            $table->integer('id')->unsigned();
+            $table->integer('id_user')->unsigned();
             $table->integer('id_lieu')->unsigned();
             $table->timestamps();
         });

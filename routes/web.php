@@ -10,10 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'WelcomeController@index');
 
 Auth::routes();
 
@@ -44,6 +46,8 @@ Route::middleware(['auth', 'web'])->group( function(){
     Route::get('geoloc', function(){
         return view('geoloc');
     })->name('geoloc.get');
+
+    Route::post('comment/{image}/{user}', 'CommentController@post')->name('commentPost');
 
 });
 // ------------- End Route de la Navbar du header---------------------
