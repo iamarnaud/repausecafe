@@ -18,7 +18,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+
 //-------------Route de la Navbar du header---------------------
+
 
 //User connected redirige vers le flux (concerne logo du header)
 
@@ -45,8 +49,12 @@ Route::middleware(['auth', 'web'])->group( function(){
         return view('geoloc');
     })->name('geoloc.get');
 
+    Route::get('/monProfil', 'UserController@profile')->name('monProfil');
+    Route::post('/monProfil', 'UserController@avatar');
 });
 // ------------- End Route de la Navbar du header---------------------
+
+
 
 // routes vers pages amis et membres
 Route::get('amis', function(){

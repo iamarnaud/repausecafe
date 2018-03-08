@@ -56,7 +56,7 @@ class RegisterController extends Controller
             'tel' => '',
             'date_naiss' => '',
             'description' => '',
-            'url_img_profil' => '',
+            'avatar' => '',
             'notification' => '',
             'genre'=>'',
         ]);
@@ -79,7 +79,7 @@ class RegisterController extends Controller
             'date_naiss' => $data['date_naiss'],
             'description' => $data['description'],
             'genre' => $data['genre'],
-            'url_img_profil' => $data['url_img_profil'],
+            'avatar' => $data['avatar'],
             'notification' => $data['notification'],
         ]);
     }

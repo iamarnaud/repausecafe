@@ -93,13 +93,13 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="url_img_profil" class="col-md-4 col-form-label text-md-right">Choisissez votre photo de profil</label>
+                    <label for="avatar" class="col-md-4 col-form-label text-md-right">Choisissez votre photo de profil</label>
 
                     <div class="col-md-6">
-                        <input id="url_img_profil" type="file"  class="form-control{{ $errors->has('url_img_profil') ? ' is-invalid' : '' }}"  value="{{ old('url_img_profil') }} "name="url_img_profil"    >
-                        @if ($errors->has('url_img_profil'))
+                        <input id="avatar" type="file"  class="form-control{{ $errors->has('avatar') ? ' is-invalid' : '' }}"  value="{{ old('avatar') }} "name="avatar"    >
+                        @if ($errors->has('avatar'))
                             <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('url_img_profil') }}</strong>
+                                        <strong>{{ $errors->first('avatar') }}</strong>
                                     </span>
                         @endif
 

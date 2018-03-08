@@ -31,7 +31,7 @@
                 <li class="menu_share"><a href={{route('partager.get')}} id="menu_lien_share"><span
                                 class="hidden-sm hidden-xs" id="menu_share_letter">Partager </span><i
                                 class="fa fa-camera-retro" aria-hidden="true" id="menu_share_icon"></i></a></li>
-                <li class="menu_icon"><a href={{route('user_profil.get')}} class="menu_lien"><i class="fa fa-user"
+                <li class="menu_icon"><a href={{route('monProfil')}} class="menu_lien"><i class="fa fa-user"
                                                                                                 aria-hidden="true"></i></a>
                 </li>
                 <li class="menu_icon"><a href={{route('chat.get')}} class="menu_lien"><i class="fa fa-comments-o"
