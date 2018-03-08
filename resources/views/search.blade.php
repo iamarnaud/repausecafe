@@ -26,6 +26,7 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
+                    <th></th>
                     <th>Nom</th>
                     <th>Description</th>
                     <th>Ajouter en ami</th>
@@ -38,6 +39,7 @@
                     <tr>
                         {{-- a travailler pour que seulement le vert s'affiche si pas amis et messsage amis plus icone rouge supprimer
                         si dejà amis--}}
+                       <td> <img src="/uploads/avatars/{{$user->avatar }}" style="width:50px; height:50px; float:right; border-radius:50%; margin-left:25px;"></td>
                         <td><a href="" style="color: black">{{$user->prenom}} {{$user->nom}}</a></td>
                         {{--ligne suivante revoit la description liée à l'user trouvé--}}
                         <td>{{$user->description}} </td>
