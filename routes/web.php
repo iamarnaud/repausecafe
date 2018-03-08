@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -49,9 +51,16 @@ Route::middleware(['auth', 'web'])->group( function(){
         return view('geoloc');
     })->name('geoloc.get');
 
+
     Route::get('/monProfil', 'UserController@profile')->name('monProfil');
     Route::post('/monProfil', 'UserController@avatar');
+
+
+
 });
+////redirige page recherche
+Route::any ( '/search', 'SearchController@index')->middleware('auth','web');
+
 // ------------- End Route de la Navbar du header---------------------
 
 
@@ -63,3 +72,5 @@ Route::get('amis', function(){
 Route::get('membres', function(){
     return view('membres');
 })->name('membres');
+
+
