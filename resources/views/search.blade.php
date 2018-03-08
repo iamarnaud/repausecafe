@@ -45,12 +45,7 @@
                         <td>{{$user->description}} </td>
                         <td><button class="btn btn-outline-success"><i class="fa fa-user-plus"></i></button> <button class="btn btn-outline-danger"><i class="fa fa-user-times"></i></button></td>
 
-                        {{--<td>@foreach()--}}
-                        {{--@endforeach--}}
-                        {{--</td>--}}
-                        {{--<td>@foreach()--}}
-                            {{--@endforeach--}}
-                        {{--</td>--}}
+
                     </tr>
                 @endforeach
                 </tbody>
