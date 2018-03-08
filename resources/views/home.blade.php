@@ -16,7 +16,7 @@
                     You are logged in!
                 </div>
             </div>
-    <ul>
+
 
         <form action="/search" method="POST" role="search">
            @csrf
@@ -29,7 +29,7 @@
         </span>
             </div>
         </form>
-<div>
 
+</div>
 
 @endsection

@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -48,7 +50,7 @@ Route::middleware(['auth', 'web'])->group( function(){
 
 });
 ////redirige page recherche
-Route::any ( '/search', 'SearchController@index');
+Route::any ( '/search', 'SearchController@index')->middleware('auth','web');
 
 // ------------- End Route de la Navbar du header---------------------
 

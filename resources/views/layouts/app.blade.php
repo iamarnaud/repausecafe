@@ -25,11 +25,13 @@
                     class="hidden-xs"> SeecretSpot</span></a></div>
     <div class="col-xs-4 col align-self-end">
         <ul id="menu_connect">
+            {{--Si l'utilisateur n'est pas authentifié on aura ceci :--}}
             @guest
                 <li><a class="nav-link" style="color:white; font-weight:bold; " href="{{ route('login') }}">Se
                         connecter</a></li>
                 <li><a class="nav-link" style="color:white; font-weight:bold; " href="{{ route('register') }}">Nouvel
                         utilisateur ?</a></li>
+                {{--Si l'utilisateur est connecté on aura la barre nav complète--}}
             @else
                 <li class="menu_icon prenom_connect">{{Auth::user()->prenom}}</li>
                 <li class="menu_icon prenom_connect">{{Auth::user()->nom}}</li>
