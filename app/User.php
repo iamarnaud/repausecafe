@@ -29,23 +29,23 @@ class User extends Authenticatable
 
     public function images()
     {
-        return $this->hasMany(Images::class);
+        return $this->hasMany(Images::class, 'user_id');
     }
 
     public function ami()
     {
-        return $this->hasMany(Ami::class);
+        return $this->hasMany(Ami::class, 'user_id');
     }
 
     public function comments()
     {
-        return $this->hasMany(Comment::class);
+        return $this->hasMany(Comment::class, 'user_id');
     }
 
 
     public function message()
     {
-        return $this->hasMany(Message::class);
+        return $this->hasMany(Message::class, 'user_id');
     }
 
 }

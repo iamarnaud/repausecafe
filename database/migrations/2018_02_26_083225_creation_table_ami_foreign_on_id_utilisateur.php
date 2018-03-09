@@ -15,9 +15,9 @@ class CreationTableAmiForeignOnIdUtilisateur extends Migration
     {
         Schema::create('amis', function (Blueprint $table) {
             $table->dateTime('anniversaire_amitie');
-            $table->integer('id')->unsigned();
-            $table->integer('id_n')->unsigned();
-            $table->primary(array('id', 'id_n'));
+            $table->integer('id_user')->unsigned();
+            $table->integer('id_user_n')->unsigned();
+            $table->primary(array('id_user', 'id_user_n'));
             $table->timestamps();
 
         });

@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,11 +12,7 @@
 |
 */
 
-use Illuminate\Support\Facades\Route;
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'WelcomeController@index');
 
 Auth::routes();
 
@@ -51,19 +48,15 @@ Route::middleware(['auth', 'web'])->group( function(){
         return view('geoloc');
     })->name('geoloc.get');
 
-
+    Route::post('comment/{image}/{user}', 'CommentController@post')->name('commentPost');
     Route::get('/monProfil', 'UserController@profile')->name('monProfil');
     Route::post('/monProfil', 'UserController@avatar');
-
-
 
 });
 ////redirige page recherche
 Route::any ( '/search', 'SearchController@index')->middleware('auth','web');
 
 // ------------- End Route de la Navbar du header---------------------
-
-
 
 // routes vers pages amis et membres
 Route::get('amis', function(){
@@ -72,5 +65,3 @@ Route::get('amis', function(){
 Route::get('membres', function(){
     return view('membres');
 })->name('membres');
-
-
