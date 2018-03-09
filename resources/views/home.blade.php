@@ -55,15 +55,6 @@
                                 </strong>le {{$post->created_at}}</p>
                         </figure>
 
-                        <div class="row">
-                            <div class="col l12 s12 center-align">
-                                @if (session('status'))
-                                    <div class="alert alert-info text-center" role="alert">
-                                        {{ session('status') }}
-                                    </div>
-                                @endif
-                            </div>
-                        </div>
 
                         <div class="p-2 d-flex justify-content-between bg-light">
                             <p>J'aime : {{ $post->aime }}</p>
@@ -95,7 +86,7 @@
 
 
                                     <form action="{{ route('commentPost',["image"=>$post->id , "user" =>Auth::user()->id] ) }}"
-                                          method="POST" class="form-comment" data-post="commmentBox{{ $post->id }}">
+                                          method="POST" class="form-comment" data-post="{{ $post->id }}">
                                         @csrf
 
                                         <div class="modal-body">

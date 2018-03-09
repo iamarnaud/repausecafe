@@ -7,18 +7,17 @@ $(document).ready(function () {
     let data = $(this).serialize()
     let url = $(this).attr('action')
     let method = 'POST'
+    let comSelect = '#comment' + $(this).data('post')
+    let modal = '#commmentBox' + $(this).data('post')
 
-    let str = sendComment(url, data, method)
+    sendComment(url, data, method, comSelect)
 
-    //$(str).appendTo('.comment'); Rechercher enfant
-
-    let modal = '#' + $(this).data('post')
     $(modal).modal('hide')
   })
 
 })
 
-function sendComment (url, data, method) {
+function sendComment (url, data, method, comSelect) {
   $.ajax({
     method: method,
     url: url,
@@ -34,8 +33,8 @@ function sendComment (url, data, method) {
 
     let str = '<div><p>' + commentaire + '</p><p>Par ' + prenom + ' le ' + created_at + '</p></div>'
 
-    console.log(str)
-    return str
+    $(comSelect).append(str)
+
   })
 
 }
