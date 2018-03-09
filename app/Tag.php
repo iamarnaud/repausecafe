@@ -11,7 +11,7 @@ class Tag extends Model
 
     public function images()
     {
-        return $this->hasMany(Images::class);
+        return $this->hasMany(Images::class, 'id_image', 'id_image_n');
     }
 
 }

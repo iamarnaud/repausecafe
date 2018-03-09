@@ -15,8 +15,8 @@ class AddToCommentForeignOfUserImg extends Migration
     {
         Schema::table('comments', function (Blueprint $table) {
 
-           $table->foreign('id')->references('id')->on('users');
-           $table->foreign('id_image')->references('id_image')->on('images');
+            $table->foreign('id_user')->references('id')->on('users');
+            $table->foreign('id_image')->references('id')->on('images');
 
         });
     }
@@ -29,7 +29,7 @@ class AddToCommentForeignOfUserImg extends Migration
     public function down()
     {
         Schema::table('comments', function (Blueprint $table) {
-            $table->dropForeign('comments_id_foreign');
+            $table->dropForeign('comments_id_user_foreign');
             $table->dropForeign('comments_id_image_foreign');
         });
     }

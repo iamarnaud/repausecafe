@@ -14,8 +14,8 @@ class AddToTagForeignOfImg extends Migration
     public function up()
     {
         Schema::table('tags', function (Blueprint $table) {
-            $table->foreign('id_image')->references('id_image')->on('images');
-            $table->foreign('id_image_n')->references('id_image')->on('images');
+            $table->foreign('id_image')->references('id')->on('images');
+            $table->foreign('id_image_n')->references('id')->on('images');
         });
     }
 

@@ -14,8 +14,8 @@ class AddForeignAmi extends Migration
     public function up()
     {
         Schema::table('amis', function (Blueprint $table) {
-            $table->foreign('id')->references('id')->on('users');
-            $table->foreign('id_n')->references('id')->on('users');
+            $table->foreign('id_user')->references('id')->on('users');
+            $table->foreign('id_user_n')->references('id')->on('users');
         });
     }
 
@@ -27,8 +27,8 @@ class AddForeignAmi extends Migration
     public function down()
     {
         Schema::table('amis', function (Blueprint $table) {
-            $table->dropForeign('amis_id_foreign');
-            $table->dropForeign('amis_id_n_foreign');
+            $table->dropForeign('amis_id_user_foreign');
+            $table->dropForeign('amis_id_user_n_foreign');
         });
     }
 }
