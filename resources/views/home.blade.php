@@ -3,8 +3,52 @@
     <title>SeecretSpot | NOM UTILISATEUR </title>
 @endsection
 @section('content')
-    <div class="container">
 
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+                    @if (session('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+
+                        </div>
+                    </div>
+
+                @endforeach
+            </div>
+            <div class="col-md-4">
+                <table class="table table-striped">
+                    <tr>
+                        <td>Utilisateur</td>
+                        <td>Status</td>
+                    </tr>
+                    <?php
+                    $users = App\User::take(10)->get();
+                    foreach ($users as $user) {
+                        echo "<tr><td>" . $user->nom . "</td><td>" . $online = $user->en_ligne == '1' ? 'En Ligne' : 'Déconnecté' . "</td></tr>";
+                    }
+                    ?>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+
+        <form action="/search" method="POST" role="search">
+           @csrf
+            <div class="input-group">
+                <input type="text" class="form-control" name="query"
+                       placeholder="Rechercher"> <span class="input-group-btn">
+            <button type="submit" class="btn btn-default">Rechercher
+                <span class="glyphicon glyphicon-search"></span>
+            </button>
+        </span>
+            </div>
+        </form>
+
+</div>
 
         <div class="row justify-content-center">
 
@@ -88,27 +132,4 @@
                                     </div>
                                 </div>
                             </div>
-
-
-                        </div>
-                    </div>
-
-                @endforeach
-            </div>
-            <div class="col-md-4">
-                <table class="table table-striped">
-                    <tr>
-                        <td>Utilisateur</td>
-                        <td>Status</td>
-                    </tr>
-                    <?php
-                    $users = App\User::take(10)->get();
-                    foreach ($users as $user) {
-                        echo "<tr><td>" . $user->nom . "</td><td>" . $online = $user->en_ligne == '1' ? 'En Ligne' : 'Déconnecté' . "</td></tr>";
-                    }
-                    ?>
-                </table>
-            </div>
-        </div>
-    </div>
 @endsection

@@ -20,20 +20,28 @@
 <body style="font-family: 'Roboto', sans-serif;">
 
 <nav class="nav">
-    <div class="col-xs-8" id="logo_title"><a href={{route('home')}} id="retour-flux"><i class="fa fa-eye" aria-hidden="true"></i><span
+    <div class="col-xs-8" id="logo_title"><a href={{route('home')}} id="retour-flux"><i class="fa fa-eye"
+                                                                                        aria-hidden="true"></i><span
                     class="hidden-xs"> SeecretSpot</span></a></div>
     <div class="col-xs-4 col align-self-end">
         <ul id="menu_connect">
+            {{--Si l'utilisateur n'est pas authentifié on aura ceci :--}}
             @guest
-                <li><a class="nav-link" style="color:white; font-weight:bold; " href="{{ route('login') }}">Se connecter</a></li>
-                <li><a class="nav-link" style="color:white; font-weight:bold; " href="{{ route('register') }}">Nouvel utilisateur ?</a></li>
+                <li><a class="nav-link" style="color:white; font-weight:bold; " href="{{ route('login') }}">Se
+                        connecter</a></li>
+                <li><a class="nav-link" style="color:white; font-weight:bold; " href="{{ route('register') }}">Nouvel
+                        utilisateur ?</a></li>
+                {{--Si l'utilisateur est connecté on aura la barre nav complète--}}
             @else
-                <li class="menu_share"><a href={{route('partager.get')}} id="menu_lien_share"><span
-                                class="hidden-sm hidden-xs" id="menu_share_letter">Partager </span><i
-                                class="fa fa-camera-retro" aria-hidden="true" id="menu_share_icon"></i></a></li>
-                <li class="menu_icon"><a href={{route('user_profil.get')}} class="menu_lien"><i class="fa fa-user"
-                                                                                                aria-hidden="true"></i></a>
+
+                <li class="menu_icon prenom_connect">{{Auth::user()->prenom}}</li>
+                <li class="menu_icon prenom_connect">{{Auth::user()->nom}}</li>
+                <li class="menu_share"><a href={{route('partager.get')}} id="menu_lien_share">
+                        <span class="hidden-sm hidden-xs" id="menu_share_letter">Partager </span>
+                        <i class="fa fa-camera-retro" aria-hidden="true" id="menu_share_icon"></i></a></li>
+                <li class="menu_icon"><a href={{route('monProfil')}} class="menu_lien"><i class="fa fa-user"></i></a>
                 </li>
+
                 <li class="menu_icon"><a href={{route('chat.get')}} class="menu_lien"><i class="fa fa-comments-o"
                                                                                          aria-hidden="true"></i></a>
                 </li>
@@ -47,8 +55,6 @@
                 <li class="menu_icon"><a class="menu_lien" href="{{route('logout')}}" onclick="event.preventDefault();
                                           document.getElementById('logout-form').submit();"><i
                                 class="fa fa-sign-out"></i>{{ Auth::user()->name }} </a></li>
-
-
 
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

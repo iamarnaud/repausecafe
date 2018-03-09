@@ -69,10 +69,11 @@
                                name="pass" data-validation="confirmation"
                                data-validation-help="Carctères autorisés : Tous | votre mot de passse doit avoir 8 caractères minimum">
                     </p>
+                </fieldset>
                     <fieldset>
                         <legend>Photo de profil</legend>
                         <div class="form-group">
-                            <input type="file" name="url_img_profil" class="form-control {{ $errors->has('url_img_profil') ? 'is-invalid' : '' }}"  id="image"  value="{{ old('url_img_profil') }}">
+                            <input type="file" name="avatar" class="form-control {{ $errors->has('avatar') ? 'is-invalid' : '' }}"  id="image"  value="{{ old('avatar') }}">
                             <!-- <input type="submit" value="Utiliser" id="bouton-message"/><!--a définir si utile ou si la photo se charge toute seule-->
                         </div>
                     </fieldset>

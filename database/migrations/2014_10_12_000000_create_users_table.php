@@ -20,11 +20,11 @@ class CreateUsersTable extends Migration
             $table->string('genre');
             $table->string('email', 70)->unique();
             $table->string('password',255);
-            $table->text('url_img_profil');
+            $table->string('avatar')->default('default.jpg');
             $table->longText('description');
             $table->string('tel', 30);
             $table->boolean('en_ligne')->nullable();
-            $table->boolean('notification')->default(0);
+            $table->boolean('notification')->default(null);
             $table->date('date_naiss');
             $table->rememberToken();
             $table->timestamps();

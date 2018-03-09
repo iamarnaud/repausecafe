@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,17 +11,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-//
-//Route::get('/', function () {
-//    return view('welcome');
-//});
 
 Route::get('/', 'WelcomeController@index');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+
 //-------------Route de la Navbar du header---------------------
+
 
 //User connected redirige vers le flux (concerne logo du header)
 
@@ -48,8 +49,13 @@ Route::middleware(['auth', 'web'])->group( function(){
     })->name('geoloc.get');
 
     Route::post('comment/{image}/{user}', 'CommentController@post')->name('commentPost');
+    Route::get('/monProfil', 'UserController@profile')->name('monProfil');
+    Route::post('/monProfil', 'UserController@avatar');
 
 });
+////redirige page recherche
+Route::any ( '/search', 'SearchController@index')->middleware('auth','web');
+
 // ------------- End Route de la Navbar du header---------------------
 
 // routes vers pages amis et membres
