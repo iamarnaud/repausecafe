@@ -14,8 +14,8 @@ class AddToImgForeignOfUsrAndLieu extends Migration
     public function up()
     {
         Schema::table('images', function (Blueprint $table) {
-            $table->foreign('id')->references('id')->on('users');
-            $table->foreign('id_lieu')->references('id_lieu')->on('lieuxes');
+            $table->foreign('id_user')->references('id')->on('users');
+            $table->foreign('id_lieu')->references('id')->on('lieuxes');
         });
     }
 
@@ -27,7 +27,7 @@ class AddToImgForeignOfUsrAndLieu extends Migration
     public function down()
     {
         Schema::table('images', function (Blueprint $table) {
-            $table->dropForeign('images_id_foreign');
+            $table->dropForeign('images_id_user_foreign');
             $table->dropForeign('images_id_lieu_foreign');   //
         });
     }

@@ -14,7 +14,7 @@ class CreateLieuxTable extends Migration
     public function up()
     {
         Schema::create('lieuxes', function (Blueprint $table) {
-            $table->increments('id_lieu',true)->unsigned();
+            $table->increments('id', true)->unsigned();
             $table->string('pays', 100);
             $table->string('ville', 100);
             $table->string('region', 100);

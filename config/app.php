@@ -149,6 +149,7 @@ return [
 
         Intervention\Image\ImageServiceProvider::class,
 
+
         /*
          * Package Service Providers...
          */

@@ -75,6 +75,8 @@
     </div>
 </footer>
 <script src="{{asset('js/script.js')}}"></script>
+<script src="{{asset('js/app.js')}}"></script>
+<script src="{{asset('js/scriptHome.js')}}"></script>
 <script src="{{asset('js/bootstrap.js')}}"></script>
 <script src="{{asset('js/sessionStorage.js')}}"></script>
 </body>
