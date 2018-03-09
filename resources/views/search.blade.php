@@ -3,7 +3,7 @@
     <title>SeecretSpot | RESULTATS DE RECHERCHE </title>
 @endsection
 @section('content')
-    <br>
+
     <div class="container">
     <form action="/search" method="POST" role="search">
         @csrf
@@ -31,7 +31,6 @@
                     <th>Description</th>
                     <th>Ajouter en ami</th>
 
-
                 </tr>
                 </thead>
                 <tbody>
@@ -50,6 +49,8 @@
                 @endforeach
                 </tbody>
             </table>
+            {{--pour afficher le message d'erreur--}}
+        @else <h2 class="titreSearch">{{$message}}</h2>
         @endif
     </div>
     @endsection

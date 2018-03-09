@@ -23,9 +23,11 @@ class SearchController extends Controller
 
             //s'il y a un resultat on a en retour la page search avec les resultats
             if (count ( $user ) > 0 )
+                //withDetails withMessage methodes magiques auxquelles on accède avec
+                //$details et $message
                 return view ( 'search' )->withDetails ( $user )->withQuery ( $query );
             else // s'il n'y a pas de résultat, la phrase s'affiche sous la barre de recherche
-                return view ( 'search' )->withMessage ( 'Humm.. aucun résultats trouvés pour la requête, essayez autre chose !' );
+                return view ( 'search' )->withMessage ( 'Humm.. aucun résultats trouvés cette recherche...' );
         }
 
 
