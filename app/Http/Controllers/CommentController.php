@@ -37,10 +37,12 @@ class CommentController extends Controller
 
 
         }
+
+        session()->flash('statusCom', 'Votre commentaire a bien été enregistré');
+
         if ($request->headers->has("No-Redirect")) {
             return response()->json($comment);
         }
-        session()->flash('status', 'Votre commentaire a bien été enregistré');
         return redirect('home');
 
     }
