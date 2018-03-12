@@ -512,3 +512,7 @@ li {
     margin-right: 15px;
     cursor: pointer;
 }
+
+#form-share {
+    display: none;
+}

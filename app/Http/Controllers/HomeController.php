@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use App\Images;
+
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -22,8 +25,15 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+
+
     {
-        return view('home');
+
+        $users = User::take(10)->get();
+        $posts = Images::take(15)->get();
+
+
+        return view('home', ['posts' => $posts, 'users' => $users]);
     }
 
 

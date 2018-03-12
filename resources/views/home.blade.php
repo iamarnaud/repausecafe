@@ -13,7 +13,7 @@
                         {{ session('status') }}
 
                     </div>
-                    @endif
+                @endif
 
             </div>
 
@@ -30,24 +30,89 @@
         </span>
             </div>
         </form>
-
-
     </div>
-<br>
+
+    <br>
+    <div class="container text-center">
+        <button type="button" class="btn btn-secondary" id="btn-share">Partage ton Spot !</button>
+        <div class="share col-8 offset-2">
+            <form method="POST" action="{{route('postImagePost', ["user" =>Auth::user()->id])}}"
+                  enctype="multipart/form-data" id="form-share">
+                @csrf
+                <fieldset class="border">
+                    <legend>Partage Spot</legend>
+                    <div class="form-group">
+                        <label for="name-share">Nom: </label>
+                        <input class="form-control" type="text" name="name-share" id="name-share"
+                               value="{{old('name-share')}}">
+                        @if(isset($errors))
+                            <p class="error">{{$errors->first('name-share')}}</p>
+                        @endif
+                    </div>
+                    <div class="form-group">
+                        <label for="image-share">Mon Spot ( photos ) :</label>
+                        <input class="form-control" type="file" name="image-share" id="image-share"
+                               value="{{old('image-share')}}">
+                        @if(isset($errors))
+                            <p class="error">{{$errors->first('image-share')}}</p>
+                        @endif
+                    </div>
+                    <div class="form-group">
+                        <label for="description-share">Description : </label>
+                        <textarea class="form-control" name="description-share" id="description-share"
+                                  placeholder="Description du spot..."></textarea>
+                        @if(isset($errors))
+                            <p class="error">{{$errors->first('description-share')}}</p>
+                        @endif
+                    </div>
+                    <div class="form-group">
+                        <label for="pays-share">Pays:</label>
+                        <input class="form-control" type="text" name="pays-share" id="pays-share"
+                               value="{{old('pays-share')}}">
+                        @if(isset($errors))
+                            <p class="error">{{$errors->first('pays-share')}}</p>
+                        @endif
+                    </div>
+                    <div class="form-group">
+                        <label for="ville-share">Ville:</label>
+                        <input class="form-control" type="text" name="ville-share" id="ville-share"
+                               value="{{old('ville-share')}}">
+                        @if(isset($errors))
+                            <p class="error">{{$errors->first('ville-share')}}</p>
+                        @endif
+                    </div>
+                    <div class="form-group">
+                        <label for="region-share">Region:</label>
+                        <input class="form-control" type="text" name="region-share" id="region-share"
+                               value="{{old('re-share')}}">
+                        @if(isset($errors))
+                            <p class="error">{{$errors->first('region-share')}}</p>
+                        @endif
+                    </div>
+                    <div class="form-group">
+                        <label for="btn-sub-share"></label>
+                        <input class="btn btn-secondary" type="submit" id="btn-sub-share" value="ENVOYER">
+
+                        <label for="btn-cancel-share"></label>
+                        <input class="btn btn-secondary" type="reset" id="btn-cancel-share" value="AFFACER">
+                    </div>
+
+                </fieldset>
+            </form>
+        </div>
+    </div>
 
     <div class="row justify-content-center offset-2">
 
         <div class="col-md-8">
-            <?php
-            $posts = App\Images::take(15)->get()
-            ?>
+
 
             @foreach ($posts as $post)
                 <div class="row justify-content-center">
                     <div class="d-flex flex-column ">
                         <h2>{{ $post->nom }} {{ $post->id }}</h2>
                         <figure class="p-2 figure">
-                            <img src="http://via.placeholder.com/450x450" class="figure-img img-fluid rounded"
+                            <img src="http://via.placeholder.com/650x450" class="figure-img img-fluid rounded"
                                  alt="{{ $post->nom }}">
                             <figcaption class="figure-caption">{{ $post->description }}</figcaption>
                             <p>Posté par <strong>
@@ -108,7 +173,7 @@
                         </div>
                     </div>
                 </div>
-                @endforeach
+            @endforeach
         </div>
         <div class="col-md-4">
             <table class="table table-striped">
@@ -117,11 +182,16 @@
                     <td>Status</td>
                 </tr>
 
-                <?php $users = App\User::take(10)->get();?>
 
                 @foreach ($users as $user)
-                    <?php  echo "<tr><td>" . $user->nom . "</td><td>" . $online = $user->en_ligne == '1' ? 'En Ligne' : 'Déconnecté' . "</td></tr>";?>
-
+                    <tr>
+                        <td>
+                            {{ $user->nom }}
+                        </td>
+                        <td>
+                            {{ $online = $user->en_ligne == '1' ? 'En Ligne' : 'Déconnecté' }}
+                        </td>
+                    </tr>
                 @endforeach
 
 

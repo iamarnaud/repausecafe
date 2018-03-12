@@ -11,18 +11,18 @@ class Images extends Model
         'lien',
         'description',
         'aime',
-        'post_date',
         'coord_lat',
         'coord_lon',
-        'id_image',
         'id',
-        'id_lieu'
+        'id_lieu',
+        'id_user',
+        'id_image'
     ];
 
 
     public function lieu()
     {
-        return $this->hasOne(Lieux::class, 'id_lieu');
+        return $this->hasOne(Lieux::class);
     }
 
     public function user()

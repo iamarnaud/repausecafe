@@ -49,6 +49,8 @@ Route::middleware(['auth', 'web'])->group( function(){
     })->name('geoloc.get');
 
     Route::post('comment/{image}/{user}', 'CommentController@post')->name('commentPost');
+    Route::post('post/{user}', 'PostImageController@store')->name('postImagePost');
+
     Route::get('/monProfil', 'UserController@profile')->name('monProfil');
     Route::post('/monProfil', 'UserController@avatar');
 

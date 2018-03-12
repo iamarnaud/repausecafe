@@ -8,12 +8,12 @@ class Lieux extends Model
 {
 
 
-    protected $fillable = ['pays', 'ville', 'region'];
+    protected $fillable = ['id', 'pays', 'ville', 'region', 'id_lieu'];
 
 
     public function images()
     {
-        return $this->belongsTo(Images::class);
+        return $this->belongsToMany(Images::class);
     }
 
 
