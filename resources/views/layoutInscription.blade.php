@@ -17,7 +17,7 @@
     <script src="{{asset('plug/MagnificPopup/jquery.magnific-popup.js')}}"></script>
     <script src="{{asset('plug/AmaranJS/dist/js/jquery.amaran.js')}}"></script>
     <script src="{{asset('plug/tapmodo-Jcrop-1902fbc/js/jquery.Jcrop.min.js')}}"></script>
-
+    <script src="{{asset('js/videScript.js')}}"></script>
     <script src="{{asset('plug/vide/jquery.vide.js')}}"></script>
 
     <script src="{{asset('js/sessionStorage.js')}}"></script>
@@ -25,7 +25,7 @@
     @yield('title')
 </head>
 
-<body>
+<body @yield('body')>
 <header>
 <nav class="nav">
     <div class="col-xs-8" id="logo_title">
@@ -33,7 +33,7 @@
     </div>
 </nav>
 </header>
-
+<br>
 @yield ('content')
 
 <footer class="mastfoot mt-auto">

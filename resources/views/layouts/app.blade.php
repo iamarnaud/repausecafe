@@ -15,6 +15,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
     <script src="{{asset('plug/vide/jquery.vide.js')}}"></script>
+
     @yield('title')
 </head>
 <body style="font-family: 'Roboto', sans-serif;">
