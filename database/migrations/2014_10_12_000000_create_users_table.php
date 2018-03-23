@@ -22,9 +22,9 @@ class CreateUsersTable extends Migration
             $table->string('password',255);
             $table->string('avatar')->default('default.jpg');
             $table->longText('description');
-            $table->string('tel', 30);
+
             $table->boolean('en_ligne')->nullable();
-            $table->boolean('notification')->default(null);
+
             $table->date('date_naiss');
             $table->rememberToken();
             $table->timestamps();

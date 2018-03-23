@@ -53,10 +53,10 @@ Route::middleware(['auth', 'web'])->group( function(){
 
     Route::get('/monProfil', 'UserController@profile')->name('monProfil');
     Route::post('/monProfil', 'UserController@avatar');
-
-});
 ////redirige page recherche
-Route::any ( '/search', 'SearchController@index')->middleware('auth','web');
+    Route::any ( '/search', 'SearchController@index')->name('search');
+});
+
 
 // ------------- End Route de la Navbar du header---------------------
 

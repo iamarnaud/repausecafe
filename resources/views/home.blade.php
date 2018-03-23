@@ -19,7 +19,7 @@
 
 
         </div>
-        <form action="/search" method="POST" role="search">
+        <form action="{{route('search')}}" method="POST" role="search">
             @csrf
             <div class="input-group">
                 <input type="text" class="form-control" name="query"

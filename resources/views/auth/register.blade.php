@@ -36,18 +36,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label for="tel" class="col-md-4 col-form-label text-md-right">Téléphone</label>
 
-                    <div class="col-md-6">
-                        <input id="tel" type="tel" class="form-control{{ $errors->has('tel') ? ' is-invalid' : '' }}"  value="{{ old('tel') }}" name="tel" >
-                        @if ($errors->has('tel'))
-                            <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('tel') }}</strong>
-                                    </span>
-                        @endif
-                    </div>
-                </div>
                 <div class="form-group row">
                     <label for="date_naiss" class="col-md-4 col-form-label text-md-right">Date de naissance</label>
 
@@ -92,24 +81,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label for="avatar" class="col-md-4 col-form-label text-md-right">Choisissez votre photo de profil</label>
-
-                    <div class="col-md-6">
-
-                        <input id="avatar" type="file"  class="form-control{{ $errors->has('avatar') ? ' is-invalid' : '' }}"  value="{{ old('avatar') }} "name="avatar"    >
-                        @if ($errors->has('avatar'))
-
-                 
-                            <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('avatar') }}</strong>
-                                    </span>
-                        @endif
-
-                    </div>
-                </div>
-
-                <div class="form-group row">
+                             <div class="form-group row">
                     <label for="email" class="col-md-4 col-form-label text-md-right">Addresse E-Mail </label>
 
                     <div class="col-md-6">
@@ -145,21 +117,7 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <p>
-                        <label class="control-label" for="not-sms">Notification par SMS</label>
-
-                        <input type="radio" name="notification"  value="0" id="notif-sms" >
-
-                    </p>
-                    <p>
-                        <label class="control-label" for="not-mail">Notification par mail</label>
-
-                        <input type="radio" name="notification" id="not-mail" value="1" checked  >
-
-                    </p>
-                </div>
-                <div class="form-group row mb-0">
+                              <div class="form-group row mb-0">
                     <div class="col-md-6 offset-md-5">
                         <button type="submit" class="btn btn-success">
                             S'enregistrer
