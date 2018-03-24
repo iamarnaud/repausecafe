@@ -55,7 +55,7 @@
                                                 <input id="email" type="email"
                                                        class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
                                                        name="email" value="{{ old('email') }}" required autofocus
-                                                       data-validation-event="keyup" style="color:white" data-validation="email">
+                                                       data-validation-event="keyup" data-validation="email">
 
                                                 @if ($errors->has('email'))
                                                     <span class="invalid-feedback">
@@ -65,7 +65,7 @@
                                             </p>
                                             <p class="form-group ">
                                                 <label for="password" class="col-form-label " style="color:white">Mot de passe</label>
-                                                <input style="color:white" id="password" type="password"
+                                                <input id="password" type="password"
                                                        class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
                                                        name="password" required>
 
