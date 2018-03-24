@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    <title>SeecretSpot | NOM UTILISATEUR </title>
+    <title>SeecretSpot | {{ Auth::User()->prenom }} </title>
 @endsection
 @section('content')
 
