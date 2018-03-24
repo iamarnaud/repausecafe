@@ -118,6 +118,7 @@
                 </div>
 
                               <div class="form-group row mb-0">
+                                  <br>
                     <div class="col-md-6 offset-md-5">
                         <button type="submit" class="btn btn-success">
                             S'enregistrer

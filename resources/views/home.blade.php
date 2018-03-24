@@ -34,13 +34,14 @@
 
     <br>
     <div class="container text-center">
-        <button type="button" class="btn btn-secondary" id="btn-share">Partage ton Spot !</button>
+        <button type="button" class="btn" id="btn-share">      <span class="hidden-sm hidden-xs" id="menu_share_letter">Partager </span>
+            <i class="fa fa-camera-retro" aria-hidden="true" id="menu_share_icon"></i></button>
         <div class="share col-8 offset-2">
             <form method="POST" action="{{route('postImagePost', ["user" =>Auth::user()->id])}}"
                   enctype="multipart/form-data" id="form-share">
                 @csrf
                 <fieldset class="border">
-                    <legend>Partage Spot</legend>
+                    <legend>Partage ton Spot !</legend>
                     <div class="form-group">
                         <label for="name-share">Nom: </label>
                         <input class="form-control" type="text" name="name-share" id="name-share"
@@ -65,36 +66,14 @@
                             <p class="error">{{$errors->first('description-share')}}</p>
                         @endif
                     </div>
-                    <div class="form-group">
-                        <label for="pays-share">Pays:</label>
-                        <input class="form-control" type="text" name="pays-share" id="pays-share"
-                               value="{{old('pays-share')}}">
-                        @if(isset($errors))
-                            <p class="error">{{$errors->first('pays-share')}}</p>
-                        @endif
-                    </div>
-                    <div class="form-group">
-                        <label for="ville-share">Ville:</label>
-                        <input class="form-control" type="text" name="ville-share" id="ville-share"
-                               value="{{old('ville-share')}}">
-                        @if(isset($errors))
-                            <p class="error">{{$errors->first('ville-share')}}</p>
-                        @endif
-                    </div>
-                    <div class="form-group">
-                        <label for="region-share">Region:</label>
-                        <input class="form-control" type="text" name="region-share" id="region-share"
-                               value="{{old('re-share')}}">
-                        @if(isset($errors))
-                            <p class="error">{{$errors->first('region-share')}}</p>
-                        @endif
-                    </div>
+
+
                     <div class="form-group">
                         <label for="btn-sub-share"></label>
                         <input class="btn btn-secondary" type="submit" id="btn-sub-share" value="ENVOYER">
 
                         <label for="btn-cancel-share"></label>
-                        <input class="btn btn-secondary" type="reset" id="btn-cancel-share" value="AFFACER">
+                        <input class="btn btn-secondary" type="reset" id="btn-cancel-share" value="EFFACER">
                     </div>
 
                 </fieldset>

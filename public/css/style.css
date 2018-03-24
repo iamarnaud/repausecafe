@@ -314,7 +314,25 @@ li {
     text-align: right;
     margin: 10px 0px 10px 0px;
 }
+.label-file {
+    cursor: pointer;
+    color: darkslategrey;
+    /*font-weight: bold;*/
+    font-family: "Permanent Marker";
+}
+.label-file:hover {
+    color: #25a5c4;
+}
+.nom_profil{
+    color: darkslategrey;
+    font-weight: bold;
+    font-family: "Permanent Marker", serif;
+}
 
+ /*et on masque le input*/
+   .input-file {
+       display: none;
+   }
 #principal-block {
     margin-top: 5%;
 }

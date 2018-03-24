@@ -13,25 +13,22 @@
 
                     <p class="form-group">
                         <label class="control-label" for="nom">Nom</label>
-                        <input name="nom" id="nomComplet" class="form-control" placeholder="Entrez votre nom"
+                        <input name="nom" id="nomComplet" class="form-control" placeholder="{{ Auth::User()->nom }}"
                                type="text" data-validation="custom"
                                data-validation-regexp="^([ÀàÁáÂâÃãÄäÅåÆæÇçÐðÈèÉéÊêËëÌìÍíÎîÏïÑñÒòÓóÔôÕõÖöœŒØøßÙùÚúÛûÜüÝýÞþŸÿ\sa-zA-Z-]+)$"
                                data-validation-help="Carctères autorisés : Tous sauf certains caractères spéciaux : *$µ...">
                     </p>
                     <p class="form-group">
                         <label class="control-label" for="prenom">Prénom</label>
-                        <input id="prenom" class="form-control" placeholder="Entrez votre prénom" type="text"
+                        <input id="prenom" class="form-control" placeholder="{{ Auth::User()->prenom }}" type="text"
                                data-validation="custom"
                                data-validation-regexp="^([ÀàÁáÂâÃãÄäÅåÆæÇçÐðÈèÉéÊêËëÌìÍíÎîÏïÑñÒòÓóÔôÕõÖöœŒØøßÙùÚúÛûÜüÝýÞþŸÿ\sa-zA-Z-]+)$"
                                data-validation-help="Carctères autorisés : Tous sauf certains caractères spéciaux : *$µ...">
                     </p>
-                    <p class="form-group">
-                        <label class="control-label" for="telephone">Téléphone</label>
-                        <input id="telephone" class="form-control" placeholder="Entrez votre numéro de téléphone" name="tel" type="tel">
-                    </p>
+
                     <p class="form-group">
                         <label class="control-label" for="date_naiss">Date de naissance</label>
-                        <input id="date_naiss" class="form-control" name="date_naiss" type="date">
+                        <input id="date_naiss" class="form-control" placeholder="{{ Auth::User()->date_naiss }}" name="date_naiss" >
                     </p>
                     <p class="form-group">
                         <label class="control-label" for="genre">Vous êtes</label>
@@ -46,15 +43,15 @@
                         <label class="control-label" for="description">
                             <span id="max-length-element">240</span> caractères restants - Description</label>
                         <textarea name="description" id="description" class="form-control"
-                                  placeholder="Votre description"
+                                  placeholder="{{ Auth::User()->description }}"
                                   data-validation-help="Message: max 240 caractères"></textarea>
                     </p>
                     <p class="form-group">
                         <label class="control-label" for="email">E-mail</label>
-                        <input class="form-control" name="email" id="email" placeholder="Votre email"
+                        <input class="form-control" name="email" id="email" placeholder="{{ Auth::User()->email }}"
                                data-validation="email" data-validation-help="Adresse email format : mailuser@mail.com">
                         <label class="control-label" for="repeat">Confimation E-mail</label>
-                        <input class="form-control" name="repeat" id="repeat" placeholder="Votre email"
+                        <input class="form-control" name="repeat" id="repeat" placeholder="{{ Auth::User()->email }}"
                                data-validation="confirmation" data-validation-confirm="email"
                                data-validation-help="Adresse email format : mailuser@mail.com">
                     </p>
@@ -70,32 +67,14 @@
                                data-validation-help="Carctères autorisés : Tous | votre mot de passse doit avoir 8 caractères minimum">
                     </p>
                 </fieldset>
-                    <fieldset>
-                        <legend>Photo de profil</legend>
-                        <div class="form-group">
-                            <input type="file" name="avatar" class="form-control {{ $errors->has('avatar') ? 'is-invalid' : '' }}"  id="image"  value="{{ old('avatar') }}">
-                            <!-- <input type="submit" value="Utiliser" id="bouton-message"/><!--a définir si utile ou si la photo se charge toute seule-->
-                        </div>
-                    </fieldset>
-                    <fieldset>
-                        <legend>Notification</legend>
-                        <div class="form-group">
-                            <p>
-                                <label class="control-label" for="not-mail">Notification par mail</label>
-                                <input type="checkbox" name="notification" id="not-mail" data-validation-qty="min1"
-                                       data-validation="checkbox_group">
-                            </p>
-                            <p>
-                                <label class="control-label" for="not-sms">Notification par SMS</label>
-                                <input type="checkbox" name="notification" id="not-sms" data-validation-qty="min1"
-                                       data-validation="checkbox_group">
-                            </p>
-                        </div>
+
+
+
                         <p class="form-group">
                             <input class="btn btn-success" type="submit" value="Valider">
                             <input class="btn btn-danger" type="reset" value="Tout effacer">
                         </p>
-                    </fieldset>
+
             </form>
         </div>
     </div>

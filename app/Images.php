@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Images extends Model
 {
     protected $fillable = [
-        'nom',
-        'lien',
-        'description',
+        'nom' => 'required|string|max:255',
+        'lien'=>'required',
+        'description' => 'required|string|max:255',
         'aime',
         'coord_lat',
         'coord_lon',
