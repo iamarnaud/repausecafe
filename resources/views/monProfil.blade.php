@@ -99,7 +99,7 @@
                     <tbody>
                     @foreach (Auth::user()->friends as $friend)
                         <tr>
-                            <td><img src="/uploads/avatars/{{$friend->avatar }}"></td>
+                            <td><img src="/uploads/avatars/{{$friend->avatar }}" style="width:50px; height:50px; float:right; border-radius:50%; margin-left:25px;"></td>
                             <td>{{ $friend->getFullName() }}</td>
                             <td>
                                 <form action="{{route('friendRemoveProf', ['id'=> $friend->id])}}" method="get">@csrf
