@@ -75,7 +75,7 @@
                 <tbody>
                 @foreach (Auth::user()->friends as $friend)
                     <tr>
-                        <td>{{ $friend->avatar }}</td>
+                        <td><img src="/uploads/avatars/{{$friend->avatar }}"></td>
                         <td>{{ $friend->getFullName() }}</td>
 
                         <td>
@@ -102,7 +102,7 @@
             <tbody>
             @foreach ($not_friends as $friend)
                 <tr>
-                    <td>{{ $friend->avatar }}</td>
+                    <td><img src="/uploads/avatars/{{$friend->avatar }}"></td>
                     <td>{{ $friend->getFullName() }}</td>
 
                     <td>
