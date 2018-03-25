@@ -42,7 +42,7 @@
                                      style="width:50px; height:50px; float:right; border-radius:50%; margin-left:25px;">
                             </td>
                             <td><a href="/profilVisiteur" style="color: black">{{ $friend->getFullName() }}</a></td>
-
+                            ligne suivante revoit la description liée à l'user trouvé
                             <td>{{$friend->description}} </td>
                             <td>
                                 <form action="{{route('friendRemoveSearch', ['id'=> $friend->id])}}" method="get">@csrf
@@ -54,7 +54,7 @@
                     @endif
                 @endforeach
                 @foreach  ($details as $user)
-                    @if ($user->id != $friend->id && $user->id != Auth::user()->id)
+                    @if ($user->id != Auth::user()->friend['id'] && $user->id != Auth::user()->id)
 
                         <tr>
                             {{--a travailler pour que seulement le vert s'affiche si pas amis et messsage amis plus icone rouge supprimer--}}

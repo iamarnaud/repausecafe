@@ -32,6 +32,8 @@ Route::middleware(['auth', 'web'])->group( function(){
         return view('monProfil');
     })->name('user_profil.get');
 
+
+    Route::get('/home', 'HomeController@index')->name('home');
     //Redirige vers parametres.blade (icone parametre)
     Route::get('parametre', function(){
         return view('parametres');
@@ -44,7 +46,7 @@ Route::middleware(['auth', 'web'])->group( function(){
     })->name('geoloc.get');
 
     Route::any('/home', 'FriendListCOntroller@getIndex');
-//    Route::any('/search', 'SearchController@getSearch');
+  Route::any('/search', 'SearchController@getSearch');
     Route::get('/monProfil', 'UserController@profile')->name('monProfil');
     Route::post('/monProfil', 'UserController@avatar');
 ////redirige page recherche
