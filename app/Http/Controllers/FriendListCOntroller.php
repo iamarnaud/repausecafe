@@ -35,4 +35,5 @@ class FriendListCOntroller extends Controller
         $user->removeFriend(Auth::user());
         return Redirect::back();
     }
+
 }
