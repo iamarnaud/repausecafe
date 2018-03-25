@@ -52,8 +52,8 @@ Route::middleware(['auth', 'web'])->group( function(){
     Route::get('/home{id}', 'FriendListCOntroller@getRemoveFriend')->name('friendRemove');
     Route::post('/home{id}', 'FriendListCOntroller@getAddFriend')->name('friendAdd');
     Route::get('/monProfil{id}', 'FriendListCOntroller@getRemoveFriend')->name('friendRemoveProf');
-  // Route::get('/search{id}', 'FriendListCOntroller@getRemoveFriend')->name('friendRemoveSearch');
- //  Route::post('/search{id}', 'FriendListCOntroller@getAddFriend')->name('friendAddSearch');
+  Route::get('/search{id}', 'FriendListCOntroller@getRemoveFriend')->name('friendRemoveSearch');
+ Route::post('/search{id}', 'FriendListCOntroller@getAddFriend')->name('friendAddSearch');
 //pb de routes pour accéder à l'ajout d'amis sur search
 });
 
