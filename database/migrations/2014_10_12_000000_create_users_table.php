@@ -17,15 +17,10 @@ class CreateUsersTable extends Migration
             $table->increments('id',true)->unsigned();
             $table->string('nom', 50);
             $table->string('prenom', 50);
-            $table->string('genre');
             $table->string('email', 70)->unique();
             $table->string('password',255);
             $table->string('avatar')->default('default.jpg');
             $table->longText('description');
-
-            $table->boolean('en_ligne')->nullable();
-
-            $table->date('date_naiss');
             $table->rememberToken();
             $table->timestamps();
         });

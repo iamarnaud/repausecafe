@@ -43,9 +43,7 @@
                                     class="fa fa-user"></i></a>
                     </li>
 
-                    <li class="menu_icon"><a href={{route('chat.get')}} class="menu_lien"><i class="fa fa-comments-o"
-                                                                                             aria-hidden="true"></i></a>
-                    </li>
+
                     <li class="menu_icon"><a href={{route('geoloc.get')}} class="menu_lien"><i class="fa fa-globe"
                                                                                                aria-hidden="true"></i></a>
                     </li>

@@ -7,6 +7,7 @@ use App\User;
 //pour récupérer la valeur de l'input du champ recherche
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
 
 
 class SearchController extends Controller
@@ -18,8 +19,6 @@ class SearchController extends Controller
             $query = Input::get ( 'query' );
             //cherche dans la table user le nom avec l'operateur LIKE
             $user = User::where ( 'nom', 'LIKE', '%' . $query . '%' )->orWhere ( 'prenom', 'LIKE', '%' . $query . '%' )->get ();
-
-
 
             //s'il y a un resultat on a en retour la page search avec les resultats
             if (count ( $user ) > 0 )

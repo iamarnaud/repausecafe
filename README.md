@@ -1,9 +1,9 @@
-# repausecafe
+﻿# repausecafe
 Notre Seecret Spot (version 2)
 
 Projet de groupe campus numérique
 SeecretSpot réseau social
-Alexandre BIAGI, Arnaud VOIRON, Eric LEDEVEDEC, Ahmed SLIMANI, Cécilia PIGEOLET
+Alexandre BIAGI, Arnaud VOIRON, Eric LEDEVEDEC,Cécilia PIGEOLET
 
 
 Après avoir cloner bien penser à :
@@ -16,5 +16,4 @@ faire un composer install
 
 faire php artisan migrate (pour récupérer les migrations)
 
-FAIRE php artisan db:seed pour récupérer les données pré enregistrées 
-dans BDD
+

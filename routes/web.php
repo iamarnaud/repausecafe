@@ -31,39 +31,32 @@ Route::middleware(['auth', 'web'])->group( function(){
     Route::get('profil', function(){
         return view('monProfil');
     })->name('user_profil.get');
-    //Redirige vers monProfil.blade (icone partager)
-    Route::get('partager', function(){
-        return view('monProfil');
-    })->name('partager.get');
+
     //Redirige vers parametres.blade (icone parametre)
     Route::get('parametre', function(){
         return view('parametres');
     })->name('parametres.get');
-    //Redirige vers chat.blade (icone message)
-    Route::get('chat', function(){
-        return view('chat');
-    })->name('chat.get');
+
+
     //Redirige vers geoloc.blade (icone geoloc)
     Route::get('geoloc', function(){
         return view('geoloc');
     })->name('geoloc.get');
 
-    Route::post('comment/{image}/{user}', 'CommentController@post')->name('commentPost');
-    Route::post('post/{user}', 'PostImageController@store')->name('postImagePost');
-
+    Route::any('/home', 'FriendListCOntroller@getIndex');
+//    Route::any('/search', 'SearchController@getSearch');
     Route::get('/monProfil', 'UserController@profile')->name('monProfil');
     Route::post('/monProfil', 'UserController@avatar');
 ////redirige page recherche
     Route::any ( '/search', 'SearchController@index')->name('search');
+    Route::get('/home{id}', 'FriendListCOntroller@getRemoveFriend')->name('friendRemove');
+    Route::post('/home{id}', 'FriendListCOntroller@getAddFriend')->name('friendAdd');
+    Route::get('/monProfil{id}', 'FriendListCOntroller@getRemoveFriend')->name('friendRemoveProf');
+  // Route::get('/search{id}', 'FriendListCOntroller@getRemoveFriend')->name('friendRemoveSearch');
+ //  Route::post('/search{id}', 'FriendListCOntroller@getAddFriend')->name('friendAddSearch');
+//pb de routes pour accéder à l'ajout d'amis sur search
 });
 
 
 // ------------- End Route de la Navbar du header---------------------
 
-// routes vers pages amis et membres
-Route::get('amis', function(){
-    return view('amis');
-})->name('ami');
-Route::get('membres', function(){
-    return view('membres');
-})->name('membres');

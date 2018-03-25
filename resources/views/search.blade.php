@@ -54,3 +54,48 @@
         @endif
     </div>
     @endsection
+{{--A RETRRAVAILLER POUR METTRE BOUTON AJOUT AMI FONCTIONNEL--}}
+{{--LES ROUTES ET CONTROLLERS SONT COMMENTES EUX AUSSI--}}
+
+{{--<table class="table table-striped">--}}
+    {{--<thead>--}}
+    {{--<tr>--}}
+        {{--<th></th>--}}
+        {{--<th>Nom</th>--}}
+        {{--<th>Description</th>--}}
+        {{--<th>Ajouter en ami</th>--}}
+
+    {{--</tr>--}}
+    {{--</thead>--}}
+    {{--<tbody>--}}
+    {{--<tr>--}}
+        {{--@foreach (Auth::user()->not_friends as $friend)--}}
+            {{--<td> <img src="/uploads/avatars/{{$friend->avatar }}" style="width:50px; height:50px; float:right; border-radius:50%; margin-left:25px;"></td>--}}
+            {{--<td><a href="/profilVisiteur" style="color: black">{{ $friend->getFullName() }}</a></td>--}}
+            {{--ligne suivante revoit la description liée à l'user trouvé--}}
+            {{--<td>{{$friend->description}} </td>--}}
+            {{--<td>  <form action="{{route('friendRemoveSearch', ['id'=> $friend->id])}}" method="get">@csrf--}}
+                    {{--<button class="btn btn-outline-danger"><i class="fa fa-user-times"></i></button>--}}
+                {{--</form>--}}
+            {{--</td>--}}
+
+    {{--</tr>--}}
+    {{--@endforeach--}}
+    {{--<tr>--}}
+        {{--a travailler pour que seulement le vert s'affiche si pas amis et messsage amis plus icone rouge supprimer--}}
+        {{--si dejà amis--}}
+        {{--<td> <img src="/uploads/avatars/{{$friend->avatar }}" style="width:50px; height:50px; float:right; border-radius:50%; margin-left:25px;"></td>--}}
+        {{--<td><a href="/profilVisiteur" style="color: black">{{ $friend->getFullName() }}</a></td>--}}
+        {{--ligne suivante revoit la description liée à l'user trouvé--}}
+        {{--<td>{{$friend->description}} </td>--}}
+        {{--<td>--}}
+
+            {{--<form action="{{ route('friendAddSearch',['id'=> $friend->id]) }}" method="get">--}}
+                {{--<button class="btn btn-outline-success">@csrf<i class="fa fa-user-plus"></i></button>--}}
+            {{--</form>--}}
+        {{--</td>--}}
+
+
+    {{--</tr>--}}
+    {{--</tbody>--}}
+{{--</table>--}}
