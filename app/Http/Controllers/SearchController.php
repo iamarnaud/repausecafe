@@ -29,5 +29,14 @@ class SearchController extends Controller
                 return view ( 'search' )->withMessage ( 'Humm.. aucun résultats trouvés cette recherche...' );
         }
 
+    public function getSearch()
+    {
+        $not_friends = User::where('id', '!=', Auth::user()->id);
+        if (Auth::user()->friends->count()) {
+            $not_friends->whereNotIn('id', Auth::user()->friends->modelKeys());
+        }
+        $not_friends = $not_friends->get();
 
+        return View('search')->with('not_friends', $not_friends);
+    }
 }
