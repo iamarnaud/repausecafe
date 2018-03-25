@@ -25,12 +25,14 @@ class FriendListCOntroller extends Controller
     {
         $user = User::find($id);
         Auth::user()->addFriend($user);
+        $user->addFriend(Auth::user());
         return Redirect::back();
     }
     public function getRemoveFriend($id)
     {
         $user = User::find($id);
         Auth::user()->removeFriend($user);
+        $user->removeFriend(Auth::user());
         return Redirect::back();
     }
 }
