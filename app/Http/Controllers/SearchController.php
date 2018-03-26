@@ -7,6 +7,7 @@ use App\User;
 //pour récupérer la valeur de l'input du champ recherche
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
 
 
 class SearchController extends Controller
@@ -19,8 +20,6 @@ class SearchController extends Controller
             //cherche dans la table user le nom avec l'operateur LIKE
             $user = User::where ( 'nom', 'LIKE', '%' . $query . '%' )->orWhere ( 'prenom', 'LIKE', '%' . $query . '%' )->get ();
 
-
-
             //s'il y a un resultat on a en retour la page search avec les resultats
             if (count ( $user ) > 0 )
                 //withDetails withMessage methodes magiques auxquelles on accède avec
@@ -30,5 +29,14 @@ class SearchController extends Controller
                 return view ( 'search' )->withMessage ( 'Humm.. aucun résultats trouvés cette recherche...' );
         }
 
+    public function getSearch()
+    {
+        $not_friends = User::where('id', '!=', Auth::user()->id);
+        if (Auth::user()->friends->count()) {
+            $not_friends->whereNotIn('id', Auth::user()->friends->modelKeys());
+        }
+        $not_friends = $not_friends->get();
 
+        return View('search')->with('not_friends', $not_friends);
+    }
 }

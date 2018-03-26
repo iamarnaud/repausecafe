@@ -4,18 +4,25 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Auth\UserTrait;
+use Illuminate\Auth\UserInterface;
+use Illuminate\Auth\RemindableTrait;
+use Illuminate\Auth\RemindableInterface;
 
 class User extends Authenticatable
 {
     use Notifiable;
+
+
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
+    protected $table = 'users';
     protected $fillable = [
-        'nom', 'email', 'password', 'prenom','date_naiss','description','genre','avatar',
+        'nom', 'email', 'password', 'prenom','description','avatar',
     ];
 
     /**
@@ -26,26 +33,29 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
-    public function images()
+    public function getFullName()
     {
-        return $this->hasMany(Images::class, 'user_id');
+        return $this->prenom . ' ' . $this->nom;
     }
 
-    public function ami()
+    public function friends()
     {
-        return $this->hasMany(Ami::class, 'user_id');
+        return $this->belongsToMany('App\User', 'friendship', 'user_id', 'friend_id');
     }
 
-    public function comments()
+    public function addFriend(User $user)
     {
-        return $this->hasMany(Comment::class, 'user_id');
+        $this->friends()->attach($user->id);
+    }
+
+    public function removeFriend(User $user)
+    {
+        $this->friends()->detach($user->id);
     }
 
 
-    public function message()
-    {
-        return $this->hasMany(Message::class, 'user_id');
-    }
+
+
+
 
 }

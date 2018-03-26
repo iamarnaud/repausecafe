@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+
 class RegisterController extends Controller
 {
     /*
@@ -54,10 +55,9 @@ class RegisterController extends Controller
             'password' => 'required|string|min:6|confirmed',
             'prenom' => 'required|string|max:255',
 
-            'date_naiss' => '',
+
             'description' => '',
 
-            'genre'=>'',
         ]);
     }
 
@@ -75,11 +75,11 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
 
             'prenom' => $data['prenom'],
-            'date_naiss' => $data['date_naiss'],
+
             'description' => $data['description'],
-            'genre' => $data['genre'],
+            ]);
 
 
-        ]);
+
     }
 }
