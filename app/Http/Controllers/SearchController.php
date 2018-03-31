@@ -22,7 +22,6 @@ class SearchController extends Controller
         }
         $not_friends = $not_friends->get();
 
-
         // on place l input (champ de recherche qui a pour name query dasn
         //une variable que l'on réutilise par la suite
         $query = Input::get('query');
@@ -36,7 +35,7 @@ class SearchController extends Controller
 
             return view('search')->with(['details' => $user, 'not_friends' => $not_friends, 'query' => $query]);
         } else {// s'il n'y a pas de résultat, la phrase s'affiche sous la barre de recherche
-            return view('search')->withMessage('Aucun résultats trouvés pour cette recherche...');
+            return view('search')->withMessage('Aucun résultat trouvés pour cette recherche...');
 
 
         }

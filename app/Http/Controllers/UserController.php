@@ -8,7 +8,7 @@ use Intervention\Image\Facades\Image;
 class UserController extends Controller
 {
     public function profile(){
-        return view('monProfil', array('monProfil' => Auth::User()));
+        return view('profil', array('profil' => Auth::User()));
     }
 
     public function avatar(Request $request){ //handle the user upload avatar
@@ -20,6 +20,6 @@ class UserController extends Controller
             $user->avatar = $filename;
             $user->save();
         }
-        return view('monProfil', array('monProfil' => Auth::User()));
+        return view('profil', array('profil' => Auth::User()));
     }
 }
