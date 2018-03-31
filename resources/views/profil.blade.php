@@ -4,9 +4,10 @@
 @endsection
 
 @section('content')
+
     <div class="container">
         <div class="row col-md-10 col-xs-hidden">
-            <h2 id="nom_profil">{{ Auth::User()->prenom }}'s Profile</h2>
+            <h2 id="nom_profil">Bienvenue <strong>{{ Auth::User()->prenom }}</strong></h2>
 
         </div>
     </div>
@@ -65,12 +66,12 @@
             2 of 3 (wider)
         </div>
         <div class="col justify-content-end ">
-            <form enctype="multipart/form-data" action="{{route('monProfil')}}" method="POST">
+            <form enctype="multipart/form-data" action="{{route('profil')}}" method="POST">
                 @csrf
                 <div class="row">
                     <div class="offset-md-3 hidden-sm-down">
                         <img src="/uploads/avatars/{{Auth::User()->avatar }}"
-                             style="width:150px; height:150px; float:right; border-radius:50%; margin-left:25px;">
+                             style="width:150px; height:150px; float:right; border-radius:50%; margin-left:25px;" alt="image profil">
                     </div>
                 </div>
                 <br>
@@ -99,8 +100,8 @@
                     <tbody>
                     @foreach (Auth::user()->friends as $friend)
                         <tr>
-                            <td><img src="/uploads/avatars/{{$friend->avatar }}" style="width:50px; height:50px; float:right; border-radius:50%; margin-left:25px;"></td>
-                            <td>{{ $friend->getFullName() }}</td>
+                            <td><img src="/uploads/avatars/{{$friend->avatar }}" style="width:50px; height:50px; float:right; border-radius:50%; margin-left:25px;" alt="image profil"></td>
+                            <td><a href="{{route('profilID', $friend->id )}}">{{ $friend->getFullName() }}</a></td>
                             <td>
                                 <form action="{{route('friendRemoveProf', ['id'=> $friend->id])}}" method="get">@csrf
                                     <button class="btn btn-outline-danger"><i class="fa fa-user-times"></i></button>

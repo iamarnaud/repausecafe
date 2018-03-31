@@ -29,7 +29,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::middleware(['auth', 'web'])->group(function () {
     //Redirige vers monProfil.blade (icone profil)
     Route::get('profil', function () {
-        return view('monProfil');
+        return view('profil');
     })->name('user_profil.get');
 
 
@@ -47,16 +47,20 @@ Route::middleware(['auth', 'web'])->group(function () {
 
     Route::any('/home', 'FriendListCOntroller@getIndex');
     Route::any('/search', 'SearchController@getSearch')->name('search');
-    Route::get('/monProfil', 'UserController@profile')->name('monProfil');
-    Route::post('/monProfil', 'UserController@avatar');
+    Route::get('/profil', 'UserController@profile')->name('profil');
+    Route::post('/profil', 'UserController@avatar');
 ////redirige page recherche
 
     Route::get('/home{id}', 'FriendListCOntroller@getRemoveFriend')->name('friendRemove');
     Route::post('/home{id}', 'FriendListCOntroller@getAddFriend')->name('friendAdd');
-    Route::get('/monProfil{id}', 'FriendListCOntroller@getRemoveFriend')->name('friendRemoveProf');
+    Route::get('/profil{id}', 'FriendListCOntroller@getRemoveFriend')->name('friendRemoveProf');
     Route::get('/search{id}', 'FriendListCOntroller@getRemoveFriend')->name('friendRemoveSearch');
     Route::post('/search{id}', 'FriendListCOntroller@getAddFriend')->name('friendAddSearch');
-//pb de routes pour accéder à l'ajout d'amis sur search
+
+    Route::get('/visite/{id}', 'ProfilController@index')->name('profilID');
+
+    Route::get('/visite{id}', 'FriendListCOntroller@getRemoveFriend')->name('friendRemoveVisit');
+    Route::post('/visite{id}', 'FriendListCOntroller@getAddFriend')->name('friendAddVisit');
 });
 
 
