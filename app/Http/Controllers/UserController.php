@@ -22,4 +22,26 @@ class UserController extends Controller
         }
         return view('profil', array('profil' => Auth::User()));
     }
+    public function updateUser(Request $request){
+        $user = Auth::user();
+
+        $user->nom = $request->input('nom');
+        $user->prenom = $request->input('prenom');
+        $user->email =$request->input('email');
+        $user->description = $request->input('description');
+
+
+        if ( ! $request->input('password') == '')
+        {
+            $user->password = bcrypt($request->input('password'));
+        }
+
+        $user->save();
+
+
+        return view('parametres')->with('message', 'Votre profil a été mis à jour!');
+
+    }
+
+
 }
