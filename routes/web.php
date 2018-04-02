@@ -57,7 +57,7 @@ Route::middleware(['auth', 'web'])->group(function () {
     Route::get('/search{id}', 'FriendListCOntroller@getRemoveFriend')->name('friendRemoveSearch');
     Route::post('/search{id}', 'FriendListCOntroller@getAddFriend')->name('friendAddSearch');
 
-    Route::get('/visite/{id}', 'ProfilController@index')->name('profilID');
+    Route::get('/visite/{id}', 'ProfilController@index')->name('profilVisit');
 
     Route::get('/visite{id}', 'FriendListCOntroller@getRemoveFriend')->name('friendRemoveVisit');
     Route::post('/visite{id}', 'FriendListCOntroller@getAddFriend')->name('friendAddVisit');

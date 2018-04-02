@@ -36,7 +36,8 @@
                 @foreach (Auth::user()->friends as $friend)
                     <tr>
                         <td><img src="/uploads/avatars/{{$friend->avatar }}"
-                                 style="width:50px; height:50px; float:right; border-radius:50%; margin-left:25px;" alt="image profil">
+                                 style="width:50px; height:50px; float:right; border-radius:50%; margin-left:25px;"
+                                 alt="image profil">
                         </td>
                         <td><a href="{{route('profilID', $friend->id )}}">{{ $friend->getFullName() }}</a></td>
                         <td>{{$friend->description}} </td>
@@ -53,9 +54,10 @@
                 @foreach ($not_friends as $friend)
                     <tr>
                         <td><img src="/uploads/avatars/{{$friend->avatar }}"
-                                 style="width:50px; height:50px; float:right; border-radius:50%; margin-left:25px;" alt="image profil">
+                                 style="width:50px; height:50px; float:right; border-radius:50%; margin-left:25px;"
+                                 alt="image profil">
                         </td>
-                        <td><a href="{{route('profilID', $friend->id )}}">{{ $friend->getFullName() }}</a></td>
+                        <td><a href="{{route('profilVisit', $friend->id )}}">{{ $friend->getFullName() }}</a></td>
                         <td>{{$friend->description}} </td>
 
                         <td>

@@ -76,7 +76,7 @@
                 @foreach (Auth::user()->friends as $friend)
                     <tr>
                         <td><img src="/uploads/avatars/{{$friend->avatar }}" style="width:50px; height:50px; float:right; border-radius:50%; margin-left:25px;" alt="image de profil"></td>
-                        <td><a href="{{route('profilID', $friend->id )}}">{{ $friend->getFullName() }}</a></td>
+                        <td><a href="{{route('profilVisit', $friend->id )}}">{{ $friend->getFullName() }}</a></td>
 
                         <td>
                             <form action="{{route('friendRemove', ['id'=> $friend->id])}}" method="get">@csrf
@@ -103,7 +103,7 @@
             @foreach ($not_friends as $friend)
                 <tr>
                     <td><img src="/uploads/avatars/{{$friend->avatar }}" style="width:50px; height:50px; float:right; border-radius:50%; margin-left:25px;" alt="image profil"></td>
-                    <td><a href="{{route('profilID', $friend->id )}}">{{ $friend->getFullName() }}</a></td>
+                    <td><a href="{{route('profilVisit', $friend->id )}}">{{ $friend->getFullName() }}</a></td>
 
                     <td>
                         <form action="{{ route('friendAdd',['id'=> $friend->id]) }}" method="post">
