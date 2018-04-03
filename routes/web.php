@@ -39,6 +39,8 @@ Route::middleware(['auth', 'web'])->group(function () {
         return view('parametres');
     })->name('parametres.get');
 
+    Route::post('parametres', 'UserController@updateUser')->name('updateUser');
+
 
     //Redirige vers geoloc.blade (icone geoloc)
     Route::get('geoloc', function () {
