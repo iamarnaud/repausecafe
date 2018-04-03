@@ -3,80 +3,114 @@
     <title>SeecretSpot | Paramètres</title>
 @endsection
 @section('content')
-
     <div class="container">
         <div class="offset-lg-2 col-lg-8 offset-lg-2 offset-md-2 col-md-8 offset-md-2 offset-sm-2 col-sm-8 offset-sm-2">
-            <h1 id="titre-inscription">Paramètres de compte</h1>
-            <form method="POST" id="font-inscription" action="{{route('register')}}" enctype="multipart/form-data" class="well" role="form">
-                <fieldset>
-@csrf
+            <h1 id="titre-inscription">Modifier mes informations personnelles</h1><br>
+            <form method="POST" action="{{ route('updateUser') }}" enctype="multipart/form-data">
+                @csrf
 
-                    <p class="form-group">
-                        <label class="control-label" for="nom">Nom</label>
-                        <input name="nom" id="nomComplet" class="form-control" placeholder="{{ Auth::User()->nom }}"
-                               type="text" data-validation="custom"
-                               data-validation-regexp="^([ÀàÁáÂâÃãÄäÅåÆæÇçÐðÈèÉéÊêËëÌìÍíÎîÏïÑñÒòÓóÔôÕõÖöœŒØøßÙùÚúÛûÜüÝýÞþŸÿ\sa-zA-Z-]+)$"
-                               data-validation-help="Carctères autorisés : Tous sauf certains caractères spéciaux : *$µ...">
-                    </p>
-                    <p class="form-group">
-                        <label class="control-label" for="prenom">Prénom</label>
-                        <input id="prenom" class="form-control" placeholder="{{ Auth::User()->prenom }}" type="text"
-                               data-validation="custom"
-                               data-validation-regexp="^([ÀàÁáÂâÃãÄäÅåÆæÇçÐðÈèÉéÊêËëÌìÍíÎîÏïÑñÒòÓóÔôÕõÖöœŒØøßÙùÚúÛûÜüÝýÞþŸÿ\sa-zA-Z-]+)$"
-                               data-validation-help="Carctères autorisés : Tous sauf certains caractères spéciaux : *$µ...">
-                    </p>
+                <div class="form-group row">
+                    <label for="nom" class="col-md-4 col-form-label text-md-right">Nom</label>
 
-                    <p class="form-group">
-                        <label class="control-label" for="date_naiss">Date de naissance</label>
-                        <input id="date_naiss" class="form-control" placeholder="{{ Auth::User()->date_naiss }}" name="date_naiss" >
-                    </p>
-                    <p class="form-group">
-                        <label class="control-label" for="genre">Vous êtes</label>
-                        <select class="form-control" id="pays" name="genre" data-validation="required">
-                            <option value="">Choisir...</option>
-                            <option value="france">Une Femme (des années 80)</option>
-                            <option value="russie">Un Homme (de cromagnon, un singe ou un poisson)</option>
-                            <option value="france">Who cares..</option>
-                        </select>
-                    </p>
-                    <p class="form-group">
-                        <label class="control-label" for="description">
-                            <span id="max-length-element">240</span> caractères restants - Description</label>
-                        <textarea name="description" id="description" class="form-control"
-                                  placeholder="{{ Auth::User()->description }}"
-                                  data-validation-help="Message: max 240 caractères"></textarea>
-                    </p>
-                    <p class="form-group">
-                        <label class="control-label" for="email">E-mail</label>
-                        <input class="form-control" name="email" id="email" placeholder="{{ Auth::User()->email }}"
-                               data-validation="email" data-validation-help="Adresse email format : mailuser@mail.com">
-                        <label class="control-label" for="repeat">Confimation E-mail</label>
-                        <input class="form-control" name="repeat" id="repeat" placeholder="{{ Auth::User()->email }}"
-                               data-validation="confirmation" data-validation-confirm="email"
-                               data-validation-help="Adresse email format : mailuser@mail.com">
-                    </p>
-                    <p class="form-group">
-                        <label class="control-label" for="pass_confirmation">Password (Au moins 8 caractères)</label>
-                        <input class="form-control" type="password" id="pass_confirmation"
-                               placeholder="Votre mot de passe" name="pass_confirmation" data-validation="length"
-                               data-validation-length="min8"
-                               data-validation-help="Carctères autorisés : Tous | votre mot de passse doit avoir 8 caractères minimum">
-                        <label class="control-label" for="pass">Confirmation password</label>
-                        <input class="form-control" type="password" id="pass" placeholder="Votre mot de passe"
-                               name="pass" data-validation="confirmation"
-                               data-validation-help="Carctères autorisés : Tous | votre mot de passse doit avoir 8 caractères minimum">
-                    </p>
-                </fieldset>
+                    <div class="col-md-6">
+                        <input id="nom" type="text" class="form-control{{ $errors->has('nom') ? ' is-invalid' : '' }}"
+                               name="nom" value="{{ Auth::user() ->nom}}" required autofocus>
+
+                        @if ($errors->has('nom'))
+                            <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('nom') }}</strong>
+                                    </span>
+                        @endif
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="prenom" class="col-md-4 col-form-label text-md-right">Prénom</label>
+
+                    <div class="col-md-6">
+                        <input id="prenom" type="text"
+                               class="form-control{{ $errors->has('prenom') ? ' is-invalid' : '' }}" name="prenom"
+                               value="{{ Auth::user() ->prenom}}" required>
+
+                        @if ($errors->has('prenom'))
+                            <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('prenom') }}</strong>
+                                    </span>
+                        @endif
+                    </div>
+                </div>
 
 
+                <div class="form-group row">
+                    <label for="description" class="col-md-4 col-form-label text-md-right">Description</label>
 
-                        <p class="form-group">
-                            <input class="btn btn-success" type="submit" value="Valider">
-                            <input class="btn btn-danger" type="reset" value="Tout effacer">
-                        </p>
+                    <div class="col-md-6">
+                        <textarea id="description"
+                                  class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}"
+                                  name="description" placeholder="Votre description"
+                                  required>{{ Auth::user() ->description}}</textarea>
+                        @if ($errors->has('description'))
+                            <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('description') }}</strong>
+                                    </span>
+                        @endif
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="email" class="col-md-4 col-form-label text-md-right">Addresse E-Mail </label>
 
+                    <div class="col-md-6">
+                        <input id="email" type="email"
+                               class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email"
+                               value="{{ Auth::user() ->email}}" required>
+
+                        @if ($errors->has('email'))
+                            <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                        @endif
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="password" class="col-md-4 col-form-label text-md-right">Mot de passe</label>
+
+                    <div class="col-md-6">
+                        <input id="password" type="password"
+                               class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password"
+                               required>
+
+                        @if ($errors->has('password'))
+                            <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                        @endif
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Confirmez votre mot de
+                        passe</label>
+
+                    <div class="col-md-6">
+                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
+                               required>
+                    </div>
+                </div>
+
+                <div class="form-group row mb-0">
+                    <br>
+                    <div class="col-md-6 offset-md-5">
+                        <button type="submit" class="btn btn-success">
+                            S'enregistrer
+                        </button>
+                        <input class="btn btn-danger" type="reset" value="Tout effacer">
+                    </div>
+                </div>
             </form>
         </div>
     </div>
+    <br>
+
+
 
 @endsection

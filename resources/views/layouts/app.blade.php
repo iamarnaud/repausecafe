@@ -39,7 +39,7 @@
                                  style="width:35px; height:35px; border-radius:50%"> </li>
                     <li class="menu_icon prenom_connect">{{Auth::user()->prenom}}</li>
                     <li class="menu_icon prenom_connect">{{Auth::user()->nom}}</li>
-                    <li class="menu_icon"><a href={{route('monProfil')}} class="menu_lien"><i
+                    <li class="menu_icon"><a href={{route('profil')}} class="menu_lien"><i
                                     class="fa fa-user"></i></a>
                     </li>
 
